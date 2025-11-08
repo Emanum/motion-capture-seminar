@@ -1,0 +1,62 @@
+\section{Short Introduction into LaTeX}
+Always include a small introductory section before you start the next subsection. Also, if you only have one subsection, leave it out. In this case: In this section, you can find information about figures, BibTeX entries (including databases, bibliography style, and citations), and common mistakes to avoid.
+
+\subsection{Inserting Figures}
+You can and should add figures to your seminar paper. This works using  \textit{\textbackslash begin\{figure\}}. There are five things to look out for here:
+\begin{enumerate}
+    \item You can add a [h!] after \texttt{\textbackslash begin\{figure\}}. This helps to position the figure in the text, where you mentioned it (though this is not 100\%).
+    \item You should give a meaningful and detailed description of the figure in the caption. You can do this in the \texttt{caption} field of the \texttt{\textbackslash begin\{figure\}} (see \autoref{fig:color-blind-chart} for an example).
+    \item Make sure that you reference where you have the image from. If you created it yourself, you can but don't necessarily need to mention this. If you adapted it from somewhere, note that as well.
+    \item Your figure should be readable and accessible. This means that the text in the figure/image should be approximately the same font size as the rest of your text. Also, have a look for the colors, they should be readable for color-blind folks as well. I can recommend this tool to check for that: \href{https://www.color-blindness.com/coblis-color-blindness-simulator/}{Color Blindness Simulator}.\\
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=\linewidth]{graphics/Color_blindness_wheels.png}
+        \caption{Three different color blindness types are presented with the standard vision (Trichromacy) in comparison. These include Deuteranopia (green-blind), Protanopia (red-blind), and Trianopia (blue-blind) (adapted from \cite{Hawesthoughts2023Colorblindness}).}
+        \label{fig:color-blind-chart}
+    \end{figure}
+    \item And lastly, reference the figure in the text using \texttt{ref\{\}}. Ideally, you discuss the figure in the surrounding text to integrate it in the structure and justify its inclusion in the seminar paper. Like so: \textit{A visualization of common color blindness types can be found in Figure~\ref{fig:color-blind-chart}. Most common is Deuteranopia, which makes the distinction between red and green especially difficult (compare to Figure \ref{fig:color-blind-chart}).}
+    You can also use \texttt{autoref\{\}} which look like this: \autoref{fig:color-blind-chart}. 
+\end{enumerate}
+
+\subsection{Citations in LaTeX}
+If you've worked with LaTeX before, you are probably familiar with the following information. In LaTeX, it is common that you have a separate bib-file (here: \texttt{references.bib}), which contains your BibTeX entries. A BibTeX entry contains all relevant information about a reference. There are different entry-types, such as \texttt{article}, \texttt{book}, etc. In the following, you will get information about sourcing BibTeX entries, inserting them into your project, choosing a bibliography style and polishing your final reference list.
+\subsubsection{Sourcing BibTeX Files}
+When you are looking for different papers, you will most likely use or end up on certain databases, such as \href{https://ieeexplore.ieee.org/Xplore/home.jsp}{IEEE Xplore}, \href{https://www.semanticscholar.org/}{SemanticScholar}, \href{https://www.researchgate.net/}{ResearchGate}, or \href{https://dl.acm.org/}{ACM}. On most databases, including those mentioned, there is an option to export the citation. Most of the time, this can also be in a BibTeX-format. ATTENTION HERE: There are sometimes mistakes in those, you need to double check the results you get! What is also really important is to find the conference/journal/book where something was published. Sometimes, you will find papers on \href{https://arxiv.org/}{arXiv}, which is an open access archive, where papers can be published before they are published through, for example, a journal. You will always need to check, whether this paper has actually been published elsewhere, because only the published reference is correct. \\You can also write a BibTeX entry from scratch directly into the .bib-file, e.g. using \texttt{@article}, which then automatically lists you the most relevant entry-options.
+\subsubsection{BibTeX Entry Into Your Project}
+If you have a copied BibTeX entry from a database, insert it into your references.bib file. Check it again then! Do you want to include the abstract, are the authors correct, is the abbreviation of your conference consistent with your other references etc. \\\\
+To input the bib-file into your project, you need to include the line \texttt{\textbackslash bibliography\{references\}} in your main.tex file right at the end of the document. \textit{References} is the name of your bib-file. This is already done for you in the \texttt{main.tex} file. \\\\
+Technically, you can also write the BibTeX-entries into your main.tex but this is really not recommended as it gets messy very quickly.
+
+\subsubsection{Choosing a Bibliography Style}
+You always need to define the bibliography style (\texttt{\textbackslash bibliographystyle\{ieeetr\}}) right above the \texttt{\textbackslash bibliography\{references\}} line. 
+For this seminar paper, we want you to use the IEEE reference style, which is very common in the Computer Science community. This can be done using, for example, the ieeetr or IEEEtran style. Please have a look, which of those is best for you. I also want to note that there is the option to modify the bibliography style as well (e.g. that more than six authors automatically get displayed as et al.). In my experience this has worked well with \href{https://github.com/maxkratz/ieeetran_doi}{IEEEtranDOI}, where you download the style-file from github and make some changes in there to fit your needs (this enables DOIs to be shown, for example). Note that there is no perfect out-of-the-box solution, you will always need to check and recheck your references for consistency.
+
+\subsubsection{Citing in Your Text}
+The references in your bib-file only get displayed when you have used them in the text. You therefore need to \textbf{cite them} using \texttt{\textbackslash cite\{citation-key\}}. If you want to use a quote in your text, please cite it as follows: \\
+\texttt{\textbackslash cite[p.5]\{citation-key\}}, which results in something like: \\\\
+``Extensive research has established a strong correlation between plagiarism and academic failure, with students who engage in plagiarism consistently achieving the poorest performance in individual examinations'' \cite[p. 1]{Berrezueta-Guzman2023PlagiarismDetection}. \\\\
+When you are using quotes, one counterintuitive aspect is that the usual \textbf{double-quotation marks} \texttt{"} don't work correctly in LaTeX. You need to use \texttt{` + `} at the beginning of your quote and \texttt{' + '} at the end. It is better explained in \autoref{fig:quotation-marks}. 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{graphics/Quotation_marks.png}
+    \caption{Different quotation marks lead to different results in the final typeset using LaTeX (taken from \cite{Musick0HabitsLatex}).}
+    \label{fig:quotation-marks}
+\end{figure}
+\\
+I really recommend that you adapt the \textbf{citation keys} directly after importing your BibTeX entry or generate meaningful entries from the beginning. One example is \texttt{LastnameoffirstauthorYearTitlekeywords}, which could look like: \texttt{Berrezueta-Guzman2023PlagiarismDetection}. Then you have multiple ways to find the correct reference, whether you just remember the last name, something of the title, or need to check against the year. \\\\
+Citations should be placed within the sentence, before the full stop, and after a space [1]. When mentioning authors in the text, cite immediately after (e.g., Gelautz et al. \cite{Gelautz2023CVDrivingRobotics} found…).
+\subsection{Common Mistakes in the Reference List}
+In this section, I will list common mistakes when it comes to the IEEE referencing style:
+\begin{itemize}
+    \item \textbf{Authors:} This is the IEEE author formatting (Firstname Middlename Lastname)
+    \begin{itemize}
+        \item One author: F. M. Lastname, ``...."
+        \item Two authors: F. M. Lastname and F. M. Lastname, ``..."
+        \item Three to six authors: F. M. Lastname, F. M. Lastname, and F. M. Lastname, ``..."
+        \item More than six authors: F. M. Lastname et al., ``..."
+    \end{itemize}
+    \item \textbf{Titles:} Titles of individual articles/papers/reports/chapters are written in double quotation marks and in lowercase except for the first word, proper nouns and after a colon, question mark etc. 
+    \item \textbf{Conferences/Journals:} Titles of conferences/books/journals are written in italics and all major words are capitalized. Use abbreviations either on all or none of the conferences (e.g., CVPR)
+    \item \textbf{Missing Conferences/Journals:} As previously noted, you should always cite the published version (e.g., via CVPR) over the unpublished version (e.g., via arXiv). But if it was only published via arXiv, you need to mention this as well! Also if it is a diploma thesis/dissertation.
+    \item \textbf{Months:} It is not necessary in IEEE to include the month, however if you do, be consistent about which abbreviations you are using or none at all.
+\end{itemize}

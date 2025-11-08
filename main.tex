@@ -1,0 +1,128 @@
+% This is a template for seminar papers in the courses by Prof. Margrit Gelautz. There are important informations within this document, so please have a look at it at the beginning thorougly! When "TODO" is written, it means that there are changes you need to do here. When "COMMENT" is written, it means that we are trying to explain the LaTeX code for you.
+
+\documentclass[titlepage, 12pt]{article} % The document gets initialized.
+\newcommand{\open}[1]{\textcolor{red}{#1}} % When you write: \open{} the text in brackets is red.
+
+% COMMENT: Useful packages
+\usepackage[english]{babel} % Language setting
+\usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=4cm,marginparwidth=1.75cm]{geometry} % Set page size and margins
+\usepackage{amsmath, graphicx, gobble, array, xcolor, soul}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Creates colored links
+\setlength\parindent{0pt} % This removes the indents
+
+% TODO: Please fill in your information here
+\newcommand{\paperTitle}{\open{This is a Title}}
+\newcommand{\studentName}{\open{FirstName LastName}}
+\newcommand{\matriculationNumber}{\open{01234567}}
+\newcommand{\studyCode}{\open{000 000}}
+\newcommand{\studentEmail}{\open{email@student.tuwien.ac.at}}
+\newcommand{\seminarNumber}{\open{000.000}}
+\newcommand{\seminarName}{\open{Seminar Name}}
+\newcommand{\supervisor}{Prof. Dr. Margrit Gelautz}
+\newcommand{\semester}{\open{S/W Year}}
+\newcommand{\dueDate}{\open{DD. Month Year}}
+
+% COMMENT: This is where your title page is formatted, don't change anything here.
+\title{
+\textbf{\paperTitle}}
+\author{\\ 
+    \textbf{\studentName} \\ \\ \\ 
+    Matriculation Number: \matriculationNumber \\ 
+    Study Code: \studyCode \\ 
+    E-mail: \studentEmail \\ \\ 
+    \seminarNumber \\
+    \seminarName \\
+    Supervisor(s): \supervisor \\
+    Semester: \semester \\
+    \newline
+}
+\date{\dueDate}
+
+%TC:ignore
+% #########################################
+% COMMENT: The actual document and content starts here. 
+\begin{document}
+\maketitle
+
+% #########################################
+% COMMENT: The declaration of independent work is inserted here. Please read it again.
+\section*{Erklärung zur Verfassung der Arbeit}
+Hiermit erkläre ich, dass ich diese Arbeit selbständig verfasst habe, dass ich die verwendeten Quellen und Hilfsmittel vollständig angegeben habe und dass ich die Stellen der Arbeit - einschließlich Tabellen, Karten und Abbildungen -, die anderen Werken oder dem Internet im Wortlaut oder dem Sinn nach entnommen sind, auf jeden Fall unter Angabe der Quelle als Entlehnung kenntlich gemacht habe. \\
+\open{Ich erkläre weiters, dass ich mich generativer KI-Tools lediglich als Hilfmittel bedient habe und in der vorliegenden Arbeit meine gestalterischer Einfluss überwiegt. Im Anhang “Übersicht verwendeter Hilfsmittel” habe ich alle generativen KI-Tools gelistet, die verwendet wurden, und angegeben, wo und wie sie verwendet wurden. Für Textpassagen, die ohne substantielle Änderung übernommen wurden, habe ich jeweils die von mir formulierten Eingaben (Prompts) und die verwendete IT-Anwendung mit ihrem Produktnamen und Versionsnummer/Datum angegeben.} \\\\
+\open{IMPORTANT: Read this thoroughly so that you make no mistakes here! (it is in German for legal reasons, but you'll find a way to translate it)} % TODO: Remove this before the final submission.
+
+% #########################################
+% TODO: Here you should write your abstract.
+
+\newpage
+\addcontentsline{toc}{section}{Abstract} % This adds Abstract to the Table of Contents. 
+\section*{Abstract}
+Here is where your abstract should be. It is not an easy task to write a good abstract, so use some time to think about it. Abstracts shouldn't contain anything that you have not mentioned in the rest of your seminar paper, but should give a short summary about everything that you wrote, including your results. Maybe it helps to think about an abstract as a spoiler: it should give all the information about your paper at the beginning. Also don't confuse it with the role of the introduction. In the introduction, you should motivate the reader thoroughly, give context to the scientific landscape (cite often!) and give an overview of what to expect.
+\\\\
+Also consider writing your abstract at the end, as you only then fully know what your paper contains.
+
+% #########################################
+% COMMENT: This is where your table of content is automatically generated.
+
+\newpage
+\tableofcontents
+%TC:endignore
+
+% #########################################
+% COMMENT: Here, your real content of the seminar paper starts.
+
+\newpage
+\pagenumbering{arabic}
+
+% COMMENT: We recommend to create separate files for the separate sections. It simplifies the main.tex file and makes it easier to keep a good overview. You can use \input to include the content of the other file on the same page. Or you can use \include if you want to start a new page with the content.
+
+\section*{Introduction to this Document}
+Hello all. This document is supposed to offer you some insights into LaTeX, scientific writing, and give some tips for writing your seminar paper. The content is specifically catered for this seminar and not just generic LaTeX information. If you are looking for a more basic introduction, you can have a look at this \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{LaTeX tutorial}. Please read through the \textbf{whole document thoroughly}, because it focuses on typical mistakes of previous semesters. Also read through the \textbf{introductory slides} again. Please also note: the following is based on my personal experience, can contain mistakes or accidental misinformation.
+\\\\
+Concerning the template, you don't need to use this template specifically. You are also free to use a different one, but then pay attention that you include all the important aspects which are mentioned in the preliminary slides.
+
+\input{text-files/00-Introduction}
+\input{text-files/01-LatexIntroSeminar}
+\input{text-files/02-MoreTips}
+
+
+\section{Discussion}
+
+While you don't have to include a discussion section, it is encouraged that you try to add to existing knowledge in some way. This may be through comparison of existing methods, critical reflection, etc.
+
+\section{Conclusion}
+Conclusion goes here. These were some of the most important aspects of the seminar paper. If you have any more questions, feel free to reach out to the seminar supervisors. 
+
+% ######################################################
+% ## CAN ADD OTHER SUPPLEMENTAL MATERIAL AS ANOTHER APPENDIX (THEN "APPENDICES" NOT "APPENDIX") ##
+
+\newpage
+%TC:ignore
+\addcontentsline{toc}{section}{Appendix}
+\section*{Overview of Generative AI Tools Used}
+\textbf{AI-Tool:} \\
+\textbf{Purpose:} \\
+\textbf{Input:}\\
+\textbf{Output:} \\
+\textbf{Usage:} \\
+\textbf{Reflection:} \\
+
+\noindent\rule[7pt]{\linewidth}{0.4pt}
+\textbf{AI-Tool:} \\
+\textbf{Purpose:} \\
+\textbf{Input:}\\
+\textbf{Output:} \\
+\textbf{Usage:} \\
+\textbf{Reflection:} \\
+\\
+Note: You can display your contents how ever you like, e.g. via a table etc.
+%TC:endignore
+
+% ######### REFERENCE PAGE AUTOMATICALLY GENERATED FROM .BIB FILE AND IN TEXT CITATIONS
+
+\newpage
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}
