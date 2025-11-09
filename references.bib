@@ -102,6 +102,49 @@ publisher = {IEEE Computer Society},
 address = {Los Alamitos, CA, USA},
 month =mar}
 
+@inproceedings{FLAG,
+  location = {New Orleans, {LA}, {USA}},
+  title = {{FLAG}: Flow-based 3D Avatar Generation from Sparse Observations},
+  rights = {https://doi.org/10.15223/policy-029},
+  isbn = {978-1-6654-6946-3},
+  url = {https://ieeexplore.ieee.org/document/9879257/},
+  doi = {10.1109/CVPR52688.2022.01290},
+  shorttitle = {{FLAG}},
+  abstract = {To represent people in mixed reality applications for collaboration and communication, we need to generate realistic and faithful avatar poses. However, the signal streams that can be applied for this task from head-mounted devices ({HMDs}) are typically limited to head pose and hand pose estimates. While these signals are valuable, they are an incomplete representation of the human body, making it challenging to generate a faithful full-body avatar. We address this challenge by developing a ﬂow-based generative model of the 3D human body from sparse observations, wherein we learn not only a conditional distribution of 3D human pose, but also a probabilistic mapping from observations to the latent space from which we can generate a plausible pose along with uncertainty estimates for the joints. We show that our approach is not only a strong predictive model, but can also act as an efﬁcient pose prior in different optimization settings where a good initial latent code plays a major role.},
+  eventtitle = {2022 {IEEE}/{CVF} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  pages = {13243--13252},
+  booktitle = {2022 {IEEE}/{CVF} Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  publisher = {{IEEE}},
+  author = {Aliakbarian, Sadegh and Cameron, Pashmina and Bogo, Federica and Fitzgibbon, Andrew and Cashman, Thomas J.},
+  urldate = {2025-11-09},
+  date = {2022-06},
+  year = {2022},
+  langid = {english},
+}
+
+
+@incollection{leonardis_avatarpose_2025,
+	location = {Cham},
+	title = {{AvatarPose}: Avatar-Guided 3D Pose Estimation of Close Human Interaction from Sparse Multi-view Videos},
+	volume = {15111},
+	isbn = {978-3-031-73667-4 978-3-031-73668-1},
+	url = {https://link.springer.com/10.1007/978-3-031-73668-1_13},
+	shorttitle = {{AvatarPose}},
+	abstract = {Despite progress in human motion capture, existing multiview methods often face challenges in estimating the 3D pose and shape of multiple closely interacting people. This difficulty arises from reliance on accurate 2D joint estimations, which are hard to obtain due to occlusions and body contact when people are in close interaction. To address this, we propose a novel method leveraging the personalized implicit neural avatar of each individual as a prior, which significantly improves the robustness and precision of this challenging pose estimation task. Concretely, the avatars are efficiently reconstructed via layered volume rendering from sparse multi-view videos. The reconstructed avatar prior allows for the direct optimization of 3D poses based on color and silhouette rendering loss, bypassing the issues associated with noisy 2D detections. To handle interpenetration, we propose a collision loss on the overlapping shape regions of avatars to add penetration constraints. Moreover, both 3D poses and avatars are optimized in an alternating manner. Our experimental results demonstrate state-of-the-art performance on several public datasets.},
+	pages = {215--233},
+	booktitle = {Computer Vision – {ECCV} 2024},
+	publisher = {Springer Nature Switzerland},
+	author = {Lu, Feichi and Dong, Zijian and Song, Jie and Hilliges, Otmar},
+	editor = {Leonardis, Aleš and Ricci, Elisa and Roth, Stefan and Russakovsky, Olga and Sattler, Torsten and Varol, Gül},
+	urldate = {2025-11-09},
+	date = {2025},
+	langid = {english},
+	doi = {10.1007/978-3-031-73668-1_13},
+	note = {Series Title: Lecture Notes in Computer Science},
+	file = {PDF:/Users/emanum/Zotero/storage/9MISYHNV/Lu et al. - 2025 - AvatarPose Avatar-Guided 3D Pose Estimation of Close Human Interaction from Sparse Multi-view Video.pdf:application/pdf},
+}
+
+
 @INPROCEEDINGS {simpoe,
 author = { Yuan, Ye and Wei, Shih-En and Simon, Tomas and Kitani, Kris and Saragih, Jason },
 booktitle = { 2021 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) },
@@ -186,6 +229,13 @@ date = {2021-12-01},
 	file = {Full Text PDF:/Users/emanum/Zotero/storage/6D625ETP/Mehta et al. - 2020 - XNect real-time multi-person 3D motion capture with a single RGB camera.pdf:application/pdf},
 }
 
+@inproceedings{jiang2024egoposer,
+  title={EgoPoser: Robust real-time egocentric pose estimation from sparse and intermittent observations everywhere},
+  author={Jiang, Jiaxi and Streli, Paul and Meier, Manuel and Holz, Christian},
+  booktitle={European Conference on Computer Vision},
+  year={2024},
+  organization={Springer}
+}	
 
 
 # TOOLS
@@ -234,4 +284,115 @@ International Standardization of the VRM 3D Avatar File Format},
 url = {https://vrm-consortium.org/en/common/pdf/VRMC%20Khronos%20Press%20Release%2020241024.pdf},
 date = {2024-10-24},
 urldate = {2025-11-09}
+}
+
+# Foundational References
+@book{menache_understanding_2000,
+	title = {Understanding motion capture for computer animation and video games},
+	isbn = {978-0-12-490630-3},
+	url = {http://archive.org/details/understandingmot0000mena_k0b1},
+	abstract = {xiv, 238 p. : 24 cm; Includes index},
+	pagetotal = {274},
+	publisher = {San Diego, {CA} : Morgan Kaufmann},
+	author = {Menache, Alberto},
+	editora = {{Internet Archive}},
+	editoratype = {collaborator},
+	urldate = {2025-11-09},
+	date = {2000},
+	keywords = {Computer animation},
+}
+
+
+@article{wang_recent_2003,
+	title = {Recent developments in human motion analysis},
+	volume = {36},
+	rights = {https://www.elsevier.com/tdm/userlicense/1.0/},
+	issn = {00313203},
+	url = {https://linkinghub.elsevier.com/retrieve/pii/S0031320302001000},
+	doi = {10.1016/S0031-3203(02)00100-0},
+	abstract = {Visual analysis of human motion is currently one of the most active research topics in computer vision. This strong interest is driven by a wide spectrum of promising applications in many areas such as virtual reality, smart surveillance, perceptual interface, etc. Human motion analysis concerns the detection, tracking and recognition of people, and more generally, the understanding of human behaviors, from image sequences involving humans. This paper provides a comprehensive survey of research on computer vision based human motion analysis. The emphasis is on three major issues involved in a general human motion analysis system, namely human detection, tracking and activity understanding. Various methods for each issue are discussed in order to examine the state of the art. Finally, some research challenges and future directions are discussed.},
+	pages = {585--601},
+	number = {3},
+	journaltitle = {Pattern Recognition},
+	shortjournal = {Pattern Recognition},
+	author = {Wang, Liang and Hu, Weiming and Tan, Tieniu},
+	urldate = {2025-11-09},
+	date = {2003-03},
+	langid = {english},
+}
+
+
+@article{desmarais_review_2021,
+	title = {A review of 3D human pose estimation algorithms for markerless motion capture},
+	volume = {212},
+	issn = {1077-3142},
+	url = {https://www.sciencedirect.com/science/article/pii/S1077314221001193},
+	doi = {10.1016/j.cviu.2021.103275},
+	abstract = {Human pose estimation is a very active research field, stimulated by its important applications in robotics, entertainment or health and sports sciences, among others. Advances in convolutional networks triggered noticeable improvements in 2D pose estimation, leading modern 3D markerless motion capture techniques to an average error per joint of 20 mm. However, with the proliferation of methods, it is becoming increasingly difficult to make an informed choice. Here, we review the leading human pose estimation methods of the past five years, focusing on metrics, benchmarks and method structures. We propose a taxonomy based on accuracy, speed and robustness that we use to classify de methods and derive directions for future research.},
+	pages = {103275},
+	journaltitle = {Computer Vision and Image Understanding},
+	shortjournal = {Computer Vision and Image Understanding},
+	author = {Desmarais, Yann and Mottet, Denis and Slangen, Pierre and Montesinos, Philippe},
+	urldate = {2025-11-09},
+	date = {2021-11-01},
+	keywords = {3D human pose estimation, Convolutional neural networks, Survey},
+}
+
+
+
+# Online Vtuber Article 
+@online{hololive_setup,
+	title = {COVER Corporation Announces the New Studio to Support Enhancements to the Virtual Streaming and Technology},
+	url = {https://cover-corp.com/en/news/detail/20230511-03},
+	urldate = {2025-11-09},
+	date = {2023-05-11},
+}
+
+
+
+# Datasets
+
+@inproceedings{teufelgera2025HumanOLAT,
+  title = {HumanOLAT: A Large-Scale Dataset for Full-Body Human Relighting and Novel-View Synthesis},
+  author = {Timo Teufel and Pulkit Gera and Xilong Zhou and Umar Iqbal and Pramod Rao and Jan Kautz and Vladislav Golyanik and Christian Theobalt},
+  year = {2025},
+  booktitle={International Conference on Computer Vision (ICCV)}
+}
+
+@article{10.1371/journal.pone.0253157,
+    doi = {10.1371/journal.pone.0253157},
+    author = {Ghorbani, Saeed AND Mahdaviani, Kimia AND Thaler, Anne AND Kording, Konrad AND Cook, Douglas James AND Blohm, Gunnar AND Troje, Nikolaus F.},
+    journal = {PLOS ONE},
+    publisher = {Public Library of Science},
+    title = {MoVi: A large multi-purpose human motion and video dataset},
+    year = {2021},
+    month = {06},
+    volume = {16},
+    url = {https://doi.org/10.1371/journal.pone.0253157},
+    pages = {1-15},
+    abstract = {Large high-quality datasets of human body shape and kinematics lay the foundation for modelling and simulation approaches in computer vision, computer graphics, and biomechanics. Creating datasets that combine naturalistic recordings with high-accuracy data about ground truth body shape and pose is challenging because different motion recording systems are either optimized for one or the other. We address this issue in our dataset by using different hardware systems to record partially overlapping information and synchronized data that lend themselves to transfer learning. This multimodal dataset contains 9 hours of optical motion capture data, 17 hours of video data from 4 different points of view recorded by stationary and hand-held cameras, and 6.6 hours of inertial measurement units data recorded from 60 female and 30 male actors performing a collection of 21 everyday actions and sports movements. The processed motion capture data is also available as realistic 3D human meshes. We anticipate use of this dataset for research on human pose estimation, action recognition, motion modelling, gait analysis, and body shape reconstruction.},
+    number = {6},
+}
+
+@article{sigal2009humaneva-8bd, 
+  year     = {2009}, 
+  title    = {{HumanEva}: Synchronized Video and Motion Capture Dataset and Baseline Algorithm for Evaluation of Articulated Human Motion}, 
+  author   = {Sigal, Leonid and Balan, Alexandru O. and Black, Michael J.}, 
+  journal  = {International Journal of Computer Vision}, 
+  issn     = {0920-5691}, 
+  doi      = {10.1007/s11263-009-0273-6}, 
+  abstract = {While research on articulated human motion and pose estimation has progressed rapidly in the last few years, there has been no systematic quantitative evaluation of competing methods to establish the current state of the art. We present data obtained using a hardware system that is able to capture synchronized video and ground-truth 3D motion. The resulting {HumanEva} datasets contain multiple subjects performing a set of predefined actions with a number of repetitions. On the order of 40,000 frames of synchronized motion capture and multi-view video (resulting in over one quarter million image frames in total) were collected at 60 Hz with an additional 37,000 time instants of pure motion capture data. A standard set of error measures is defined for evaluating both 2D and 3D pose estimation and tracking algorithms. We also describe a baseline algorithm for 3D articulated tracking that uses a relatively standard Bayesian framework with optimization in the form of Sequential Importance Resampling and Annealed Particle Filtering. In the context of this baseline algorithm we explore a variety of likelihood functions, prior models of human motion and the effects of algorithm parameters. Our experiments suggest that image observation models and motion priors play important roles in performance, and that in a multi-view laboratory environment, where initialization is available, Bayesian filtering tends to perform well. The datasets and the software are made available to the research community. This infrastructure will support the development of new articulated motion and pose estimation algorithms, will provide a baseline for the evaluation and comparison of new methods, and will help establish the current state of the art in human pose estimation and tracking.}, 
+  pages    = {4}, 
+  number   = {1-2}, 
+  volume   = {87}
+}
+
+@conference{AMASS:ICCV:2019,
+  title = {{AMASS}: Archive of Motion Capture as Surface Shapes},
+  author = {Mahmood, Naureen and Ghorbani, Nima and Troje, Nikolaus F. and Pons-Moll, Gerard and Black, Michael J.},
+  booktitle = {International Conference on Computer Vision},
+  pages = {5442--5451},
+  month = oct,
+  year = {2019},
+  month_numeric = {10}
 }

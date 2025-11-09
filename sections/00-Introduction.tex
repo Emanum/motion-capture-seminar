@@ -3,12 +3,43 @@ Use the introduction to build a clear storyline that highlights the importance o
 
 \hfill
 
-While we see professional VTuber Concerts being popular in Asia, we also saw some increasing popularity in the west as well. 
-While big studios use professional grade motion capture systems, similar to these used in the movie business, there are also smaller groups. 
-We believe that with the recent trends and methods of deep learning motion capture systems, more compact systems that require less camera are capable of achieving similar results which are good enough for these use cases. 
+% While we see professional VTuber Concerts being popular in Asia, we also saw some increasing popularity in the west as well. 
+% While big studios use professional grade motion capture systems, similar to these used in the movie business, there are also smaller groups. 
+% We believe that with the recent trends and methods of deep learning motion capture systems, more compact systems that require less camera are capable of achieving similar results which are good enough for these use cases. 
+
+% \hfill
+
+Human motion capture (mocap) is heavenly used in the movie industry for computer generated imagery (CGI), dating back all the way to an animation technique called rotorscoping in 1915 by the cartoonist Max Fleischer. While the implementation of these techniques got modernized from a projected movie on a piece of paper to camera and sensor based systems, the goal stayed the same: Capturing real world human motion and translating it into a virtual representation used for animation. \cite{menache_understanding_2000} \\
+To achieve as much accuracy as possible, professional state-of-the-art motion capturing studios used a large quantity of high resolution and high frame rate camera systems from multiple perspectives. COVER Corporation uses 200 Vicon Valkyrie (VK-26) \cite{hololive_setup} for their motion capture studio targeted towards computer animation. 
+Besides industry applications, generation ground truth datasets also requires high accuracy and therefore apply similar setups. HumanEva \cite{sigal2009humaneva-8bd} build their capture setup using 4 cameras from Vicon MX. MoVi \cite{10.1371/journal.pone.0253157} combines 15 stationary Qualisys cameras, two handheld phone cameras and 17 IMU sensors attached to a bodysuit.
+More modern datasets targeted towards deep learning approaches such as the HumanOLAT \cite{teufelgera2025HumanOLAT} use 40 RED Komodo 6K cameras and 331 individually controllable LEDs for a full 360 degree capture dome. 
+
+
+\hfill 
+
+The taxonomy of high accurate multi-view motion capture systems usually apply fundamentally computer vision algorithms that are already well studied.
+A first step is tracking which can be done with model-based, region-based or feature-based methods \cite{wang_recent_2003}. Afterwards, multi-view geometry is applied to do 3D pose estimation. Triangulation is used to calculate the 3D position based on the matching 2D position from the tracked points as well as intrinsic and extrinsic camera parameters \cite{desmarais_review_2021}.
+One key challenge in motion capturing is occlusion. This is the reason why many state-of-the-art motion capture systems use a large amount of cameras. As a simple yet effective solution to deal with occlusion is eliminating as much of it in the first place by using multiple camera angles. 
+\\
+While this produces accurate results it also poses some significant downsides. 
+High costs as well as a time intensive setup and calibration process being one of them. 
+In addition, recent trends in virtual reality (VR) and augmented reality (AR) head-mounted devices (HMDs) require egocentric motion capture systems that are mobile and work in dynamic environments.
+Therefore, we have also seen inside out tracking approaches such as FLAG \cite{FLAG} or EgoPoser \cite{jiang2024egoposer}.
+In addition, most approaches presented nowadays are heavenly deep learning based. 
+
+% While there is no clear best approach, many systems used in the wild have in common that they apply classical fundamental computer vision algorithms often in combination with a marker based suit.
+% Tracking is being done via model-based, region-based or feature-based tracking methods \cite{wang_recent_2003}. 
+% After tracking 
+% Multi-view geometry is used for 3D pose estimation. Triangulation is used to translate 2D coordiates to 3D coordinates. This requires 
+
+
+%  Geometric information
+% When several cameras are available, multi-view geometry is frequently used for 3D pose estimation. One way to infer joint coordinates in three dimensions is to use triangulation with their 2D image coordinates in each view. Depending on the calibration and availability of camera extrinsic and intrinsic parameters, different reconstruction schemes are possible.
+
+% The usage of a high number of cameras for classical motion capture methods
+% Using a high number of cameras in the first place is a practical way to address the challenge of occlusion. \cite{wang_recent_2003}
 
 \hfill
-
 Relevant Papers:
 \\
 
