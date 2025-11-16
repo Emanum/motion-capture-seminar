@@ -178,23 +178,43 @@ address = {Los Alamitos, CA, USA},
 month =Jun}
 
 
-# Old but good
-@ARTICLE{openPose,
-author={Cao, Zhe and Hidalgo, Gines and Simon, Tomas and Wei, Shih-En and Sheikh, Yaser},
-journal={ IEEE Transactions on Pattern Analysis \& Machine Intelligence },
-title={{ OpenPose: Realtime Multi-Person 2D Pose Estimation Using Part Affinity Fields }},
-year={2021},
-volume={43},
-number={01},
-ISSN={1939-3539},
-pages={172-186},
-abstract={ Realtime multi-person 2D pose estimation is a key component in enabling machines to have an understanding of people in images and videos. In this work, we present a realtime approach to detect the 2D pose of multiple people in an image. The proposed method uses a nonparametric representation, which we refer to as Part Affinity Fields (PAFs), to learn to associate body parts with individuals in the image. This bottom-up system achieves high accuracy and realtime performance, regardless of the number of people in the image. In previous work, PAFs and body part location estimation were refined simultaneously across training stages. We demonstrate that a PAF-only refinement rather than both PAF and body part location refinement results in a substantial increase in both runtime performance and accuracy. We also present the first combined body and foot keypoint detector, based on an internal annotated foot dataset that we have publicly released. We show that the combined detector not only reduces the inference time compared to running them sequentially, but also maintains the accuracy of each component individually. This work has culminated in the release of OpenPose, the first open-source realtime system for multi-person 2D pose detection, including body, foot, hand, and facial keypoints. },
-keywords={Two dimensional displays;Pose estimation;Detectors;Runtime;Kernel;Training},
-doi={10.1109/TPAMI.2019.2929257},
-url = {https://doi.ieeecomputersociety.org/10.1109/TPAMI.2019.2929257},
-publisher={IEEE Computer Society},
-address={Los Alamitos, CA, USA},
-month=jan}
+# OPENPOSE START
+
+@article{openPose,
+  author = {Z. {Cao} and G. {Hidalgo Martinez} and T. {Simon} and S. {Wei} and Y. A. {Sheikh}},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  title = {OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields},
+  year = {2019}
+}
+
+@inproceedings{openPose_2_simon2017hand,
+  author = {Tomas Simon and Hanbyul Joo and Iain Matthews and Yaser Sheikh},
+  booktitle = {CVPR},
+  title = {Hand Keypoint Detection in Single Images using Multiview Bootstrapping},
+  year = {2017}
+}
+
+@inproceedings{openPose_3_cao2017realtime,
+  author = {Zhe Cao and Tomas Simon and Shih-En Wei and Yaser Sheikh},
+  booktitle = {CVPR},
+  title = {Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields},
+  year = {2017}
+}
+
+@inproceedings{openPose_4_wei2016cpm,
+  author = {Shih-En Wei and Varun Ramakrishna and Takeo Kanade and Yaser Sheikh},
+  booktitle = {CVPR},
+  title = {Convolutional pose machines},
+  year = {2016}
+}
+
+@misc{openPose_github,
+  author = {Zhe Cao and Gines Hidalgo Martinez and Tomas Simon and Shih-En Wei and Yaser Sheikh},
+  title = {OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields},
+  howpublished = {\url{https://github.com/CMU-Perceptual-Computing-Lab/openpose}},
+  year = {2019}
+}
+# OPENPOSE END
 
 
 @article{chatzitofis_democap_2021,

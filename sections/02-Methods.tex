@@ -23,5 +23,19 @@ Avatarpose \cite{leonardis_avatarpose_2025}
 \subsection{Datasets}
 AMASS: Archive of Motion Capture as Surface Shapes \cite{AMASS:ICCV:2019}
 
+CMU Panoptic Studio datase
 
 Human3.6M, HumanEva, and MPI-INF-3DHP dataset
+
+\pagebreak
+
+\subsection{OpenPose}
+
+OpenPose is a popular open-source framework for real-time 2D multi-person and 3D single-person pose estimation with over 30K stars on GitHub.
+There are multiple publications related to OpenPose. Convolutional Pose Machines \cite{openPose_4_wei2016cpm} started with a sequential architecture of convolutional neural networks that produces 2D belief map.
+Each network describes a stage, the output of one stage is used as input for the next stage. By using a fully differentiable model they can use backpropagation for training. One issue with their approach is handling multiple people in the same image.\\
+This is addressed in their next publication with Part Affinity Fields \cite{openPose_3_cao2017realtime}. A bottom-up instead of top-down approach is used. This means that first body parts are detected and afterwards assigned to an unknown number of people in the image.
+They extend their sequential architecture with a two-branch approach. One branch predicts part affinity fields which encode position and orientation of limbs in a 2D vector field, another the confidence maps of body parts at a certain location. By using techniques from graph theory, they can match these body parts to the vector field and also combine them into a full body pose. With their architecture and greedy matching algorithm, they can achieve real-time multi-person 2D pose estimation. \\
+In \cite{openPose_2_simon2017hand}, they propose a method that produces 3D motion capture results handling complex Occlusion scenarios. They build up on their previous models to predict 2D estimation via multiple camera angles. The result is then triangulated to get 3D results. 
+However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.
+In \cite{openPose}, they extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github} they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
