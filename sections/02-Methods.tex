@@ -5,7 +5,6 @@ Keywords:
 \subsection{Old but good}
 OpenPose: Realtime Multi-Person 2D Pose Estimation Using Part Affinity Fields \cite{openPose}
 
-DeMoCap: Low-Cost Marker-Based Motion Capture \cite{chatzitofis_democap_2021}
 
 XNect: real-time multi-person 3D motion capture with a single RGB camera \cite{mehta_xnect_2020}
 
@@ -39,3 +38,12 @@ They extend their sequential architecture with a two-branch approach. One branch
 In \cite{openPose_2_simon2017hand}, they propose a method that produces 3D motion capture results handling complex Occlusion scenarios. They build up on their previous models to predict 2D estimation via multiple camera angles. The result is then triangulated to get 3D results. 
 However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.
 In \cite{openPose}, they extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github} they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
+
+\subsection{DeMoCap}
+Chatzitofis et al. proposed their 3D marker based motion capture system DeMoCap \cite{chatzitofis2021democap}. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
+Their proposed method works as follows: First for each of the multi-view depth images 3D positions of the markers are extracted and normalized. This work as each marker reflects the infrared rays with a different intensity therefore identifying the marker. 
+These markers together with joint heatmaps are fed into a fully convolutional network that transforms the markers to poses. This is done via their own 3D regression model. \\
+While their methods performs quiet good even under complex scenarios on public datasets such as the SFU Dataset \cite{sfudataset} it comes with some serious limitations. 
+Their used depth sensors have a distance limitation of 4 meters, which limits the capture space significantly especially compared to optical sensor based systems. Furthermore, the quantity of fast poses are challenging due to the low 30hz frequency of the sensor. 
+With only 2-4 cameras required the system is fairly mobile and quickly to set up. However, it requires the actor to wear a special suit with 53 placed markers which make it far from ideal for applications in the wild.
+
