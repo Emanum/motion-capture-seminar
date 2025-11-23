@@ -47,3 +47,26 @@ While their methods performs quiet good even under complex scenarios on public d
 Their used depth sensors have a distance limitation of 4 meters, which limits the capture space significantly especially compared to optical sensor based systems. Furthermore, the quantity of fast poses are challenging due to the low 30hz frequency of the sensor. 
 With only 2-4 cameras required the system is fairly mobile and quickly to set up. However, it requires the actor to wear a special suit with 53 placed markers which make it far from ideal for applications in the wild.
 
+\subsection{XNect}
+
+Xnect \cite{mehta_xnect_2020} is a real-time markerless approach that is powered by a single monocular RGB based camera and can provide temporally coherent tracing tracking for multiple people in diverse scenes in the wild.
+
+Their bottom up architecture start by applying a convolutional neural network which is trained to detect only fully visible features such as the joint itself, or it's parent/child. The networks output are 2D body joint heatmaps, part affinity fields to assign joints to individual persons as well as their own 3D pose encoder which uses local pixel information close to the 2D joint position. 
+In a second step a lightweight fully connected neural network transform the 2D features and 3D encoder to 3D poses for each person. In addition, it uses previous learned 3D poses to handle occlusion within the scene. 
+Lastly, a space-time skeletal model is applied to further improve the 3D pose. 
+The result or the last two stages is used in combination with the results of previous frames to fit the 3D pose to a kinematic skeleton and therefore enforce temporal coherence.
+The end result of the pipeline is a full skeletal pose with joint angles for each person.
+
+While their CNN applies a novel CNN architecture called SelecSLS to achieve real-time performance, they mention that any CNN architecture for keypoint prediction can be used.
+This makes their approach potentially be extended in the future by upcoming CNN network architectures. 
+
+They compare their approach to Microsoft Kinect V2 which uses depth sensing cameras with similar and sometimes better qualitative performance especially for scenes including occlusions. 
+In addition, results on common datasets such as MuPoTS-3D benchmark dataset (TODO cite) and the Panoptic dataset (TODO cite) are presented and compared to SingleShot [Mehta et al. 2018b], LCRNet [Rogez et al. 2017], MP3D [Dabral et al. 2019], LCRNet++ [Rogez et al. 2019] and PoseNet (https://arxiv.org/abs/1505.07427). The only approach that had a better score was PoseNet, however it comes with other limitations one of which is the lack of real-time performance. Their own CNN SelecSLS is compared to ResNet (TODO cite) with similar results while still also lacking real-time cababilities.
+However, compared to multi-view capture systems XNect has far less accuracy. 
+While occulusion is partly handled via their 2nd stage, it is far from perfect. 
+Occlusion of the neck of a person result in the entire person not being detected regarding if large parts of the body is detected. Close human interactions like hugging also leads to inaccurate results. 
+Using previous frames to match a skeleton can lean to issues for the first frames of occlusions. The simple person tracker also lead to mismatches between the capture and therefore a swap.
+
+
+\subsection{MAMMA}
+
