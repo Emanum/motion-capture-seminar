@@ -2,12 +2,6 @@
 Keywords:
  monocular video, kinematics, global coordinates, dynamic cameras,  infills missing poses,
 
-\subsection{Old but good}
-OpenPose: Realtime Multi-Person 2D Pose Estimation Using Part Affinity Fields \cite{openPose}
-
-
-XNect: real-time multi-person 3D motion capture with a single RGB camera \cite{mehta_xnect_2020}
-
 \subsection{Non Real Time Approaches}
 PACE: Human and Camera Motion Estimation from in-the-wild Videos \cite{PACE}
 
@@ -28,7 +22,7 @@ Human3.6M, HumanEva, and MPI-INF-3DHP dataset
 
 \pagebreak
 
-\subsection{OpenPose}
+\subsection{OpenPose - marker less 2D}
 
 OpenPose is a popular open-source framework for real-time 2D multi-person and 3D single-person pose estimation with over 30K stars on GitHub.
 There are multiple publications related to OpenPose. Convolutional Pose Machines \cite{openPose_4_wei2016cpm} started with a sequential architecture of convolutional neural networks that produces 2D belief map.
@@ -39,7 +33,7 @@ In \cite{openPose_2_simon2017hand}, they propose a method that produces 3D motio
 However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.
 In \cite{openPose}, they extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github} they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
 
-\subsection{DeMoCap}
+\subsection{DeMoCap - marker based 3D} 
 Chatzitofis et al. proposed their 3D marker based motion capture system DeMoCap \cite{chatzitofis2021democap}. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
 Their proposed method works as follows: First for each of the multi-view depth images 3D positions of the markers are extracted and normalized. This work as each marker reflects the infrared rays with a different intensity therefore identifying the marker. 
 These markers together with joint heatmaps are fed into a fully convolutional network that transforms the markers to poses. This is done via their own 3D regression model. \\
@@ -47,9 +41,9 @@ While their methods performs quiet good even under complex scenarios on public d
 Their used depth sensors have a distance limitation of 4 meters, which limits the capture space significantly especially compared to optical sensor based systems. Furthermore, the quantity of fast poses are challenging due to the low 30hz frequency of the sensor. 
 With only 2-4 cameras required the system is fairly mobile and quickly to set up. However, it requires the actor to wear a special suit with 53 placed markers which make it far from ideal for applications in the wild.
 
-\subsection{XNect}
+\subsection{XNect - marker less 3D}
 
-Xnect \cite{mehta_xnect_2020} is a real-time markerless approach that is powered by a single monocular RGB based camera and can provide temporally coherent tracing tracking for multiple people in diverse scenes in the wild.
+Xnect \cite{mehta_xnect_2020} is a real-time marker less approach that is powered by a single monocular RGB based camera and can provide temporally coherent tracing tracking for multiple people in diverse scenes in the wild.
 
 Their bottom up architecture start by applying a convolutional neural network which is trained to detect only fully visible features such as the joint itself, or it's parent/child. The networks output are 2D body joint heatmaps, part affinity fields to assign joints to individual persons as well as their own 3D pose encoder which uses local pixel information close to the 2D joint position. 
 In a second step a lightweight fully connected neural network transform the 2D features and 3D encoder to 3D poses for each person. In addition, it uses previous learned 3D poses to handle occlusion within the scene. 
@@ -66,6 +60,24 @@ However, compared to multi-view capture systems XNect has far less accuracy.
 While occulusion is partly handled via their 2nd stage, it is far from perfect. 
 Occlusion of the neck of a person result in the entire person not being detected regarding if large parts of the body is detected. Close human interactions like hugging also leads to inaccurate results. 
 Using previous frames to match a skeleton can lean to issues for the first frames of occlusions. The simple person tracker also lead to mismatches between the capture and therefore a swap.
+% https://universaar.uni-saarland.de/bitstream/20.500.11880/29908/1/thesis.pdf
+
+\subsection{Ultra Inertial Poser - IMU based 3D} 
+
+Tracking systems using IMU sensor are not new. We have seen various approaches like TransPose \cite{TransPose} and EgoLocate \cite{EgoLocate2023} as well as commercial products like Sony Mocopi \cite{mocopi}. One issue with IMU sensors is that they are prone to drift and jitter and therefore are not as reliable as other tracking methods. 
+Ultra Inertial Poser \cite{UltraInertialPoser} attempt to increase tracking accuracy and reliability by combining the IMU data with ultra-wideband (UWB) ranging sensor data. 
+Their systems work with six embedded trackers each combing with a 6-DoF IMU and a UWB sensor plus emitter to measure inter-sensor distances.
+UWB signals use a large bandwidth together with short waveforms, based on that physical property there exist multiple protocols used in signal processing to measure distance: Two-Way Ranging, Time Difference of Arrival and Angle of Arrival.
+One challenge with UWB is to handle noise, which arises when objects, such as body joints, prevent a direct line of sight between sensors. Ultra Inertial Poser uses an Extended Kalman Filter to reduce the noise.
+
+Each tracker is equipped with an integrated microcontroller which samples raw IMU data and an estimated distance to other trackers. The raw data is streamed via Bluetooth low energy to a host computer which performs the rest of their tracking pipeline.
+First a LSTM network together with a distance attention graph convolutional network is used to determine the positions of the trackers in 3D space.
+Afterwards a kinematics decoder based on the work Physical Inertial Poser \cite{PIPCVPR2022} is used to estimate the final SMPL pose parameters as well as a global translation relative to an initial T-Pose calibration performed by the user.
+
+
+
+% Issue: UWB sensitive to temperature
+% Issues: missing Real world, drift, hard poses not captured as no training data
 
 
 \subsection{MAMMA}

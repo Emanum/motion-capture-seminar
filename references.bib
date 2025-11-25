@@ -216,6 +216,14 @@ month =Jun}
 }
 # OPENPOSE END
 
+@misc{mocopi,
+author = {{Sony Interactive Entertainment Inc.}},
+title = {mocopi},
+howpublished = {\url{https://www.sony.co.jp/en/Products/mocopi-dev/en/}},
+year = {2023},
+note = {[accessed 25-November-2025]},
+}
+
 
 @article{chatzitofis2021democap,
   title={DeMoCap: Low-Cost Marker-Based Motion Capture},
@@ -506,3 +514,80 @@ month =sep}
   pages={770-778},
   keywords={Training;Degradation;Complexity theory;Image recognition;Neural networks;Visualization;Image segmentation},
   doi={10.1109/CVPR.2016.90}}
+
+
+@inproceedings{UltraInertialPoser,
+  author = {Armani, Rayan and Qian, Changlin and Jiang, Jiaxi and Holz, Christian},
+  title = {{Ultra Inertial Poser}: Scalable Motion Capture and Tracking from Sparse Inertial Sensors and Ultra-Wideband Ranging},
+  year = {2024},
+  isbn = {9798400705250},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3641519.3657465},
+  doi = {10.1145/3641519.3657465},
+  booktitle = {ACM SIGGRAPH 2024 Conference Papers},
+  articleno = {51},
+  numpages = {11},
+  keywords = {Human pose estimation, IMU, UWB, sparse tracking},
+  location = {Denver, CO, USA},
+  series = {SIGGRAPH '24}
+}
+
+
+@article{TransPose,
+author = {Yi, Xinyu and Zhou, Yuxiao and Xu, Feng},
+title = {TransPose: real-time 3D human translation and pose estimation with six inertial sensors},
+year = {2021},
+issue_date = {August 2021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {40},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3450626.3459786},
+doi = {10.1145/3450626.3459786},
+abstract = {Motion capture is facing some new possibilities brought by the inertial sensing technologies which do not suffer from occlusion or wide-range recordings as vision-based solutions do. However, as the recorded signals are sparse and quite noisy, online performance and global translation estimation turn out to be two key difficulties. In this paper, we present TransPose, a DNN-based approach to perform full motion capture (with both global translations and body poses) from only 6 Inertial Measurement Units (IMUs) at over 90 fps. For body pose estimation, we propose a multi-stage network that estimates leaf-to-full joint positions as intermediate results. This design makes the pose estimation much easier, and thus achieves both better accuracy and lower computation cost. For global translation estimation, we propose a supporting-foot-based method and an RNN-based method to robustly solve for the global translations with a confidence-based fusion technique. Quantitative and qualitative comparisons show that our method outperforms the state-of-the-art learning- and optimization-based methods with a large margin in both accuracy and efficiency. As a purely inertial sensor-based approach, our method is not limited by environmental settings (e.g., fixed cameras), making the capture free from common difficulties such as wide-range motion space and strong occlusion.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {86},
+numpages = {13},
+keywords = {real-time, pose estimation, inverse kinematics, RNN, IMU}
+}
+
+@article{EgoLocate2023,
+    author = {Yi, Xinyu and Zhou, Yuxiao and Habermann, Marc and Golyanik, Vladislav and Pan, Shaohua and Theobalt, Christian and Xu, Feng},
+    title = {EgoLocate: Real-time Motion Capture, Localization, and Mapping with Sparse Body-mounted Sensors},
+    journal={ACM Transactions on Graphics (TOG)},
+    year = {2023},
+    volume = {42},
+    number = {4},
+    numpages = {17},
+    articleno = {76},
+    publisher = {ACM}
+}
+
+@InProceedings{PIPCVPR2022,
+  author = {Yi, Xinyu and Zhou, Yuxiao and Habermann, Marc and Shimada, Soshi and Golyanik, Vladislav and Theobalt, Christian and Xu, Feng},
+  title = {Physical Inertial Poser (PIP): Physics-aware Real-time Human Motion Tracking from Sparse Inertial Sensors},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2022}
+}
+
+# UWB
+
+@Article{s19204466,
+AUTHOR = {Ledergerber, Anton and D’Andrea, Raffaello},
+TITLE = {Ultra-Wideband Angle of Arrival Estimation Based on Angle-Dependent Antenna Transfer Function},
+JOURNAL = {Sensors},
+VOLUME = {19},
+YEAR = {2019},
+NUMBER = {20},
+ARTICLE-NUMBER = {4466},
+URL = {https://www.mdpi.com/1424-8220/19/20/4466},
+PubMedID = {31618897},
+ISSN = {1424-8220},
+ABSTRACT = {Ultra-wideband radio signals are used in communication, indoor localization and radar systems, due to the high data rates, the high resilience to fading and the fine temporal resolution that can be achieved with a large bandwidth. This paper introduces a new method to estimate the angle of arrival of ultra-wideband radio signals with which existing time-of-flight based localization and radar systems can be augmented at no additional hardware cost. The method does not require multiple transmitter or receiver antennas, or relative motion between transmitter and receiver. Instead, it is solely based on the angle-dependent impulse response function of ultra-wideband antennas. Datasets on which the method is evaluated are publicly available. The method is further applied to a localization problem and it is shown how a robot can self-localize solely based on these angle of arrival estimates, and how they can be combined with time-of-flight measurements. Even though existing angle of arrival techniques that use multiple antennas show better accuracy, the method presented herein looks promising enough to be developed further and could potentially lead to electronically and mechanically simpler angle of arrival estimation technology.},
+DOI = {10.3390/s19204466}
+}
+
