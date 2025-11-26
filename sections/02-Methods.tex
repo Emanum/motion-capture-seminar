@@ -13,13 +13,6 @@ VIBE: Video Inference for Human Body Pose and Shape Estimation \cite{VIBE}
 Avatarpose \cite{leonardis_avatarpose_2025}
 
 
-\subsection{Datasets}
-AMASS: Archive of Motion Capture as Surface Shapes \cite{AMASS:ICCV:2019}
-
-CMU Panoptic Studio datase
-
-Human3.6M, HumanEva, and MPI-INF-3DHP dataset
-
 \pagebreak
 
 \subsection{OpenPose - marker less 2D}
@@ -71,9 +64,14 @@ UWB signals use a large bandwidth together with short waveforms, based on that p
 One challenge with UWB is to handle noise, which arises when objects, such as body joints, prevent a direct line of sight between sensors. Ultra Inertial Poser uses an Extended Kalman Filter to reduce the noise.
 
 Each tracker is equipped with an integrated microcontroller which samples raw IMU data and an estimated distance to other trackers. The raw data is streamed via Bluetooth low energy to a host computer which performs the rest of their tracking pipeline.
-First a LSTM network together with a distance attention graph convolutional network is used to determine the positions of the trackers in 3D space.
-Afterwards a kinematics decoder based on the work Physical Inertial Poser \cite{PIPCVPR2022} is used to estimate the final SMPL pose parameters as well as a global translation relative to an initial T-Pose calibration performed by the user.
+First a LSTM network together with a distance attention graph convolutional network (DA-GCN) is used to determine the positions of the trackers in 3D space.
+Afterwards a kinematics decoder based on the work Physical Inertial Poser (PIP) \cite{PIPCVPR2022} is used to estimate the final SMPL pose parameters as well as a global translation relative to an initial T-Pose calibration performed by the user.
 
+Their evaluation shows that their approach with the combination of IMU and UWB data for tracking performs better than other IMU only based methods like PIP \cite{PIPCVPR2022}.
+They also confirmed that the IMU sensor quality highly influences drift errors. As other methods performed way worse on their dataset gathered with inexpensive IMU than synthetic datasets or data gathered from high-end sensors.
+The difference was bigger for small acceleration motions as pure IMU methods tend to perfom worse here. Another advantage of the inclusion of UWB distance data is that pure IMU methods tend to mistake sitting poses with standing poses where a combined data approach can correctly classify those cases. Furthermore, their LSTM and DA-GCN network were able to reduce jitter error.
+
+However, they do not compare their approach against camera based tracking methods, which are way less prone to jitter in general. A video presentation \cite{UltraInertialPoser_YT} of their work shows a clear improvement compared to pure IMU based methods. Nevertheless, compared to the ground truth there is a still a large jitter movement visible to the naked eye.
 
 
 % Issue: UWB sensitive to temperature
