@@ -80,3 +80,8 @@ However, they do not compare their approach against camera based tracking method
 
 \subsection{MAMMA}
 
+Traditional "gold standard" motion capture studio use marker based methods to produce sub-millimeter accurate tracking. MAMMA (Markerless and Accurate Multi-person Motion Automatic capture) \cite{cuevas2025mamma} claim to achieve similar results with a similar studio setup including 32 fixed mounted RGB cameras. However, their method do so via a markerless approach, therefore reducing setup and post-processing duration time. 
+Their algorithm takes various number of camera feeds as input and estimate a dense 2D surface landmarks in the form of the SMPL-X format \cite{SMPLX}. 
+A network consisting of vision transformer (ViT) and a CNN is trained to extract images features. They use a technique called landmark queries, which means that instead of using a single embedding multiple embeddings are used to further increase generalization of the network. Therefore also increasing accuracy for challenging poses that are not present in the training data. This is possible as their technique uses the entire video data as input instead of just marker positions. 
+The features of the ViT is combined with the CNN features and used in a Transformer Decoder and MLP network to predict 2D landmarks for each camera view with a probability value for the visibility. Which can be compared to marker locations in other approaches. 
+In a final stage these landmarks are fit to a SMPL-X 3D body including multiple stages of optimization.
