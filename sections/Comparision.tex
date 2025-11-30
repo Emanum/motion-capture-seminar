@@ -4,25 +4,56 @@
 While you don't have to include a discussion section, it is encouraged that you try to add to existing knowledge in some way. This may be through comparison of existing methods, critical reflection, etc.
 
 
-Modal based constraints: 
+% Modal based constraints: 
 
 
-we fit a model-based skeleton to the 3D and 2D predictions in order
-to satisfy kinematic constraints and reconcile the 2D and 3D predic-
-tions across time -> XNect
+% we fit a model-based skeleton to the 3D and 2D predictions in order
+% to satisfy kinematic constraints and reconcile the 2D and 3D predic-
+% tions across time -> XNect
 
 
-Below is a table positioned exactly here:\\
-\begin{center}
-\begin{tabularx}{0.8\textwidth} { 
+% Below is a table positioned exactly here:\\
+
+\noindent\makebox[\textwidth]{%
+\begin{tabularx}{1.4\textwidth} { 
   | >{\raggedright\arraybackslash}X 
-  | >{\centering\arraybackslash}X 
-  | >{\raggedleft\arraybackslash}X | }
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X | }
  \hline
- item 11 & item 12 & item 13 \\
+ \textbf{Approach} & \textbf{Sensors} & \textbf{Output} & \textbf{Real-time} & \textbf{Key Limitations} \\
  \hline
- item 21  & item 22  & item 23  \\
+ \textbf{OpenPose} \cite{openPose} (\ref{method_openpose}) & RGB Camera (1+) & 2D/3D Keypoints & Yes & Fixed setup for 3D, single person for 3D triangulation \\
+ \hline
+ \textbf{DeMoCap} \cite{chatzitofis2021democap} (\ref{method_democap}) & Depth Cameras (4) + Markers & 3D Pose (SMPL) & Partial (30Hz) & Requires marker suit, 4m range limit, low frame rate \\
+ \hline
+ \textbf{XNect} \cite{mehta_xnect_2020} (\ref{method_xnect}) & RGB Camera (1) & 3D Pose (Skeletal) & Yes & Occlusion sensitivity, person tracking issues, lower accuracy than multi-view \\
+ \hline
+ \textbf{Ultra Inertial Poser} \cite{UltraInertialPoser} (\ref{method_uip}) & IMU (6) + UWB & 3D Pose (SMPL) & Yes & Jitter visible, no camera comparison, drift issues \\
+ \hline
+ \textbf{MAMMA} \cite{cuevas2025mamma} (\ref{method_mamma}) & RGB Cameras (32) & 3D Pose (SMPL-X) & No & Offline processing, fixed studio setup, hand tracking accuracy \\
+ \hline
+ \textbf{SimPoE} \cite{simpoe} & & & & \\
+ \hline
+ \textbf{VIBE} \cite{VIBE} & & & & \\
+ \hline
+ \textbf{Avatarpose} \cite{leonardis_avatarpose_2025} & & & & \\
+ \hline
+ \textbf{PACE} \cite{PACE} & & & & \\
+ \hline
+ \textbf{FLAG} \cite{FLAG} & & & & \\
+ \hline
+ \textbf{EgoPoser} \cite{jiang2024egoposer} & & & & \\
+ \hline
+ \textbf{TransPose} \cite{TransPose} & & & & \\
+ \hline
+ \textbf{EgoLocate} \cite{EgoLocate2023} & & & & \\
+ \hline
+ \textbf{Sony Mocopi} \cite{mocopi} & & & & \\
+ \hline
+ \textbf{Physical Inertial Poser (PIP)} \cite{PIPCVPR2022} & & & & \\
 \hline
-\end{tabularx}
-\end{center}
+\end{tabularx}%
+}
 \pagebreak

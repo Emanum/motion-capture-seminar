@@ -2,6 +2,7 @@
 \label{chapter_methods}
 
 \subsection{OpenPose - marker less 2D}
+\label{method_openpose}
 
 OpenPose is a popular open-source framework for real-time 2D multi-person and 3D single-person pose estimation with over 30K stars on GitHub.
 There are multiple publications related to OpenPose. Convolutional Pose Machines \cite{openPose_4_wei2016cpm} started with a sequential architecture of convolutional neural networks that produces 2D belief map.
@@ -12,7 +13,9 @@ In \cite{openPose_2_simon2017hand}, they propose a method that produces 3D motio
 However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.
 In \cite{openPose}, they extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github} they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
 
-\subsection{DeMoCap - marker based 3D} 
+\subsection{DeMoCap - marker based 3D}
+\label{method_democap}
+
 Chatzitofis et al. proposed their 3D marker based motion capture system DeMoCap \cite{chatzitofis2021democap}. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
 Their proposed method works as follows: First for each of the multi-view depth images 3D positions of the markers are extracted and normalized. This work as each marker reflects the infrared rays with a different intensity therefore identifying the marker. 
 These markers together with joint heatmaps are fed into a fully convolutional network that transforms the markers to poses. This is done via their own 3D regression model. \\
@@ -21,6 +24,7 @@ Their used depth sensors have a distance limitation of 4 meters, which limits th
 With only 2-4 cameras required the system is fairly mobile and quickly to set up. However, it requires the actor to wear a special suit with 53 placed markers which make it far from ideal for applications in the wild.
 
 \subsection{XNect - marker less 3D}
+\label{method_xnect}
 
 Xnect \cite{mehta_xnect_2020} is a real-time marker less approach that is powered by a single monocular RGB based camera and can provide temporally coherent tracing tracking for multiple people in diverse scenes in the wild.
 
@@ -41,7 +45,8 @@ Occlusion of the neck of a person result in the entire person not being detected
 Using previous frames to match a skeleton can lean to issues for the first frames of occlusions. The simple person tracker also lead to mismatches between the capture and therefore a swap.
 % https://universaar.uni-saarland.de/bitstream/20.500.11880/29908/1/thesis.pdf
 
-\subsection{Ultra Inertial Poser - 3D IMU based} 
+\subsection{Ultra Inertial Poser - 3D IMU based}
+\label{method_uip}
 
 Tracking systems using IMU sensor are not new. We have seen various approaches like TransPose \cite{TransPose} and EgoLocate \cite{EgoLocate2023} as well as commercial products like Sony Mocopi \cite{mocopi}. One issue with IMU sensors is that they are prone to drift and jitter and therefore are not as reliable as other tracking methods. 
 Ultra Inertial Poser \cite{UltraInertialPoser} attempt to increase tracking accuracy and reliability by combining the IMU data with ultra-wideband (UWB) ranging sensor data. 
@@ -65,6 +70,7 @@ However, they do not compare their approach against camera based tracking method
 
 
 \subsection{MAMMA - offline 3D gold standard competitor}
+\label{method_mamma}
 
 Traditional "gold standard" motion capture studio use marker based methods to produce sub-millimeter accurate tracking. MAMMA (Markerless and Accurate Multi-person Motion Automatic capture) \cite{cuevas2025mamma} claim to achieve similar results with a markerless approach in a studio setup including 32 RGB cameras.
 Their algorithm only uses multiple multi view videos as input and estimate a dense 2D surface for multiple people in complex scenarios. The motion capture data is predicted in the SMPL-X format \cite{SMPLX} and includes hand gestures. \\
