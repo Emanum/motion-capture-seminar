@@ -1,20 +1,5 @@
 \section{Methods}
 \label{chapter_methods}
-Keywords:
- monocular video, kinematics, global coordinates, dynamic cameras,  infills missing poses,
-
-\subsection{Non Real Time Approaches}
-PACE: Human and Camera Motion Estimation from in-the-wild Videos \cite{PACE}
-
-\subsection{Not categorized yet}
-SimPoE: Simulated Character Control for 3D Human Pose Estimation \cite{simpoe}
-
-VIBE: Video Inference for Human Body Pose and Shape Estimation \cite{VIBE}
-
-Avatarpose \cite{leonardis_avatarpose_2025}
-
-
-\pagebreak
 
 \subsection{OpenPose - marker less 2D}
 
@@ -56,7 +41,7 @@ Occlusion of the neck of a person result in the entire person not being detected
 Using previous frames to match a skeleton can lean to issues for the first frames of occlusions. The simple person tracker also lead to mismatches between the capture and therefore a swap.
 % https://universaar.uni-saarland.de/bitstream/20.500.11880/29908/1/thesis.pdf
 
-\subsection{Ultra Inertial Poser - IMU based 3D} 
+\subsection{Ultra Inertial Poser - 3D IMU based} 
 
 Tracking systems using IMU sensor are not new. We have seen various approaches like TransPose \cite{TransPose} and EgoLocate \cite{EgoLocate2023} as well as commercial products like Sony Mocopi \cite{mocopi}. One issue with IMU sensors is that they are prone to drift and jitter and therefore are not as reliable as other tracking methods. 
 Ultra Inertial Poser \cite{UltraInertialPoser} attempt to increase tracking accuracy and reliability by combining the IMU data with ultra-wideband (UWB) ranging sensor data. 
@@ -79,7 +64,7 @@ However, they do not compare their approach against camera based tracking method
 % Issues: missing Real world, drift, hard poses not captured as no training data
 
 
-\subsection{MAMMA}
+\subsection{MAMMA - offline 3D gold standard competitor}
 
 Traditional "gold standard" motion capture studio use marker based methods to produce sub-millimeter accurate tracking. MAMMA (Markerless and Accurate Multi-person Motion Automatic capture) \cite{cuevas2025mamma} claim to achieve similar results with a markerless approach in a studio setup including 32 RGB cameras.
 Their algorithm only uses multiple multi view videos as input and estimate a dense 2D surface for multiple people in complex scenarios. The motion capture data is predicted in the SMPL-X format \cite{SMPLX} and includes hand gestures. \\
@@ -90,3 +75,15 @@ They train their network on a pure synthetic dataset which simulating their 32 c
 An evaluation on the Hi4D dataset \cite{yin2023hi4d} show that their method outperform other approaches. The best in class, Avatarpose \cite{leonardis_avatarpose_2025} was beaten in tracking accuracy with a value of 13.43 to 32.10 Mean Per-Joint Position Error (mm).
 Furthermore, a direct comparison to Vicon \cite{VICON} is performed using a real evaluation dataset. Results show that there is only a minimal 1.611mm difference compared to the "gold standard". This make their technique accurate enough for many applications. An interesting comparison is also done in terms of usability and cost. Capturing a dataset with Vicon requires manual post-processing. 3 skilled technicians worked in total close to 47 hours to perform the cleanup of a 24-minute scene. Computation for the final SMPL-X format took another 25 hours. MAMMA does not require manual post-processing and took about 8 hours on an RTX-4090 to compute the final motion tracking result.\\
 As for limitations heavenly occluded areas are still a problem and can cause flickering or over-smoothing. In addition, the accuracy on hand tracking is not ideal. Compared to other methods it is also not useable in real-time scenarios and a fixed studio setup with a larger amount of camera is required. 
+
+
+\subsection{Not done yet}
+SimPoE: Simulated Character Control for 3D Human Pose Estimation \cite{simpoe}\\
+VIBE: Video Inference for Human Body Pose and Shape Estimation \cite{VIBE}\\
+Avatarpose \cite{leonardis_avatarpose_2025}\\
+PACE: Human and Camera Motion Estimation from in-the-wild Videos \cite{PACE}\\
+FLAG \cite{FLAG}\\
+EgoPoser \cite{jiang2024egoposer}\\
+EgoPoseFormer Yang et Al 2024\\
+UnrealEgo Akada et Al 2022\\
+EgoGlass Zhao et al 2021\\
