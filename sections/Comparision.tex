@@ -22,13 +22,13 @@ While you don't have to include a discussion section, it is encouraged that you 
   | >{\raggedright\arraybackslash}X 
   | >{\raggedright\arraybackslash}X | }
  \hline
- \textbf{Approach} & \textbf{Sensors} & \textbf{Output} & \textbf{Real-time} & \textbf{Key Limitations} \\
+ \textbf{Approach} & \textbf{Sensor Setup} & \textbf{Output} & \textbf{Time complexity} & \textbf{Key Limitations} \\
  \hline
- \textbf{OpenPose} \cite{openPose} (\ref{method_openpose}) & RGB Camera (1+) & 2D/3D Keypoints & Yes & Fixed setup for 3D, single person for 3D triangulation \\
+ \textbf{OpenPose} 2021 \cite{openPose} (\ref{method_openpose}) & markerless \newline single RGB camera for 2D \break multi-view RGB cameras for 3D & multi person 2D keypoints including foot and hands. Option for single person 3D keypoints via triangulation in a multi-view setup & Realtime, 22 FPS on GTX 1080TI & 3D capabilities very limited; Body occlusion and high crowded images lead to false keypoints. \\
  \hline
- \textbf{DeMoCap} \cite{chatzitofis2021democap} (\ref{method_democap}) & Depth Cameras (4) + Markers & 3D Pose (SMPL) & Partial (30Hz) & Requires marker suit, 4m range limit, low frame rate \\
+ \textbf{DeMoCap} 2021 \cite{chatzitofis2021democap} (\ref{method_democap}) & 53 body markers \newline  low-cost depth Cameras (4) & single person 3D Pose in SMPL & Realtime or close to real-time & limited capture space due to 4m range limit of sensors \newline required 53 markers or retraining \\
  \hline
- \textbf{XNect} \cite{mehta_xnect_2020} (\ref{method_xnect}) & RGB Camera (1) & 3D Pose (Skeletal) & Yes & Occlusion sensitivity, person tracking issues, lower accuracy than multi-view \\
+ \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB Camera & 3D Pose (Skeletal) & Yes & Occlusion sensitivity, person tracking issues, lower accuracy than multi-view \\
  \hline
  \textbf{Ultra Inertial Poser} \cite{UltraInertialPoser} (\ref{method_uip}) & IMU (6) + UWB & 3D Pose (SMPL) & Yes & Jitter visible, no camera comparison, drift issues \\
  \hline
