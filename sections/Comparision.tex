@@ -24,15 +24,15 @@ While you don't have to include a discussion section, it is encouraged that you 
  \hline
  \textbf{Approach} & \textbf{Sensor Setup} & \textbf{Output} & \textbf{Time complexity} & \textbf{Key Limitations} \\
  \hline
- \textbf{OpenPose} 2021 \cite{openPose} (\ref{method_openpose}) & markerless \newline single RGB camera for 2D \break multi-view RGB cameras for 3D & multi person 2D keypoints including foot and hands. Option for single person 3D keypoints via triangulation in a multi-view setup & Realtime, 22 FPS on GTX 1080TI & 3D capabilities very limited; Body occlusion and high crowded images lead to false keypoints. \\
+ \textbf{OpenPose} 2021 \cite{openPose} (\ref{method_openpose}) & markerless \newline single RGB camera for 2D \break multi-view RGB cameras for 3D & multi person 2D keypoints including foot and hands. Option for single person 3D keypoints via triangulation in a multi-view setup & Realtime & 3D capabilities very limited; Body occlusion and high crowded images lead to false keypoints. \\
  \hline
- \textbf{DeMoCap} 2021 \cite{chatzitofis2021democap} (\ref{method_democap}) & 53 body markers \newline  low-cost depth Cameras (4) & single person 3D Pose in SMPL & Realtime or close to real-time & limited capture space due to 4m range limit of sensors \newline required 53 markers or retraining \\
+ \textbf{DeMoCap} 2021 \cite{chatzitofis2021democap} (\ref{method_democap}) & 53 body markers \newline  + 4 low-cost depth Cameras  & single person 3D Pose in SMPL & Realtime & limited capture space due to 4m range limit of sensors \newline required 53 markers or retraining \\
  \hline
- \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB Camera & 3D Pose (Skeletal) & Yes & Occlusion sensitivity, person tracking issues, lower accuracy than multi-view \\
+ \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB Camera & multi person 3D Pose as Skeleton & Realtime & Occlusion of neck leads to complete loss of person; Issues with complex interactions; person mismatch between frames \\
  \hline
- \textbf{Ultra Inertial Poser} \cite{UltraInertialPoser} (\ref{method_uip}) & IMU (6) + UWB & 3D Pose (SMPL) & Yes & Jitter visible, no camera comparison, drift issues \\
+ \textbf{Ultra Inertial Poser} \cite{UltraInertialPoser} (\ref{method_uip}) &  6 wearable trackers with IMU + UWB & single person 3D Pose in SMPL & Realtime & clear visible jitter artifacts; low tracking position accuracy (order of 5-11 cm)  \\
  \hline
- \textbf{MAMMA} \cite{cuevas2025mamma} (\ref{method_mamma}) & RGB Cameras (32) & 3D Pose (SMPL-X) & No & Offline processing, fixed studio setup, hand tracking accuracy \\
+ \textbf{MAMMA} \cite{cuevas2025mamma} (\ref{method_mamma}) & 33 high quality RGB Cameras & multi person 3D Pose in SMPL-X & Offline - processing ~ 3x than recording & Offline processing, high number of camera required, low mobility \\
  \hline
  \textbf{SimPoE} \cite{simpoe} & & & & \\
  \hline
