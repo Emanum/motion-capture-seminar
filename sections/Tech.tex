@@ -8,14 +8,19 @@ Furthermore, we need benchmark datasets to measure and compare different approac
 
 \subsection{Tracking Format}
 
-A simple solution to exchange tracking information is to store it as a set of certain keypoints in 2D or 3D coordinates and then serialize it either as plain text or binary file formats. 
+A simple solution to exchange tracking information is to store it as a set of certain keypoints in 2D or 3D coordinates and then serialize it either as plain text or in binary file format. 
 Various approaches use different body locations for their keypoints often as a result of different tracking methods. For marker based approaches these are usually equal to the marker position attached on the body.
-While there are no defined standards in the research community we have seen approaches using similar keypoint position as common datasets are using. This can be seen in the dataset HDM05 \cite{cg-2007-2} and COCO Pose \cite{coco} with their usage in OpenPose \cite{openPose_docs}. However, OpenPose also proposed their own skeleton modal body25.\\
+While there are no defined standards in the research community we have seen approaches using similar keypoint position as common datasets are using. This can be observed in the dataset HDM05 \cite{cg-2007-2} and COCO Pose \cite{coco} with their usage in OpenPose \cite{openPose_docs}. However, OpenPose also proposed their own skeleton modal body25.\\
 A common proprietary format used in the 3D graphics industry is FBX \cite{fbx_format}. It contains alongside mesh information, material and texture also skeletal animation information that can be used to store motion capture data. 
-Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent GLTF \cite{gltf_format} both are now maintained by the Khronos Group.\\
-While these formats have support for meshes, they are targeted towards general 3D models and are therefore not optimized for storing human bodies. Furthermore, approaches producing only keypoints and skeleton based results lack the ability to capture body surfaces. SMPL \cite{loper_smpl_2015} is a format specialized to capture human skinned models and therefore are an optimal fit for motion capture approaches. Instead of storing a complex mesh for the entire body SMPL defines a base mesh and skinning equations to further refine the mesh. This is done via learned parameters from analyzing thousands of body scans. 
-SMPL-X \cite{SMPLX} improves the original model by adding tracking for hands and expressive face details as well as using update datasets for the training for the model. 
-Both offer a tool set to calculate a final mesh via vertex based linear blend skinning with learned corrective blend shapes.\\
+Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent GLTF \cite{gltf_format} both are now maintained by the Khronos Group.
+While these formats have support for meshes, they are targeted towards general 3D models and are therefore not optimized for storing human bodies.
+A mesh and skeleton based storage format limits the capabilities of some approaches. In order to predict entire body shapes and the movement of skin and fine facial details either a new mesh would need to be stored for each key frame or an increase of the skeleton count would be required. \\
+SMPL \cite{loper_smpl_2015} improves the storage options for such approaches. It is a format specialized to capture human skinned models. Instead of storing a complex mesh for the entire body SMPL defines a base mesh and skinning equations to further refine the mesh.
+It formulates a function which takes tracking parameters along with a pre learned model as input and output a final vertex mesh for each key frame.
+SMPL comes with the weights for the model which is trained by analyzing thousands of body scans.  
+% Therefore, trading runtime speed against storage capacity. 
+SMPL-X \cite{SMPLX} improves the original model by adding tracking for hands and expressive face details as well as using an updated dataset for training.
+Both offer along the actual storage and model mechanism tools to calculate a final mesh. This is done via vertex based linear blend skinning with learned corrective blend shapes.\\
 
 
 VRM File Format \cite{VRM_consortium}
