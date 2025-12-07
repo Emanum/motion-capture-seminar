@@ -24,8 +24,7 @@ In \cite{openPose}, they extend their 2D multi-person pose estimation to also in
 
 \subsection{DeMoCap - marker based 3D}
 \label{method_democap}
-
-Chatzitofis et al. proposed their 3D marker based motion capture system DeMoCap \cite{chatzitofis2021democap}. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
+DeMoCap \cite{chatzitofis2021democap} is a marker based 3D motion capture system. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
 Their proposed method works as follows: First for each of the multi-view depth images 3D positions of the markers are extracted and normalized. This work as each marker reflects the infrared rays with a different intensity therefore identifying the marker. 
 These markers together with joint heatmaps are fed into a fully convolutional network that transforms the markers to poses. This is done via their own 3D regression model. \\
 While their methods performs quiet good even under complex scenarios on public datasets such as the SFU Dataset \cite{sfudataset} it comes with some serious limitations. 
@@ -35,22 +34,22 @@ With only 2-4 cameras required the system is fairly mobile and quickly to set up
 \subsection{XNect - marker less 3D}
 \label{method_xnect}
 
-Xnect \cite{mehta_xnect_2020} is a real-time marker less approach that is powered by a single monocular RGB based camera and can provide temporally coherent tracing tracking for multiple people in diverse scenes in the wild.
+Xnect \cite{mehta_xnect_2020} is a real-time marker less approach that is powered by a single monocular RGB based camera and can provide temporally coherent 3D tracking for multiple people in diverse scenes in the wild.
 
 Their bottom up architecture start by applying a convolutional neural network which is trained to detect only fully visible features such as the joint itself, or it's parent/child. The networks output are 2D body joint heatmaps, part affinity fields to assign joints to individual persons as well as their own 3D pose encoder which uses local pixel information close to the 2D joint position. 
 In a second step a lightweight fully connected neural network transform the 2D features and 3D encoder to 3D poses for each person. In addition, it uses previous learned 3D poses to handle occlusion within the scene. 
-Lastly, a space-time skeletal model is applied to further improve the 3D pose. 
+Lastly, a space-time skeleton model is applied to further improve the 3D pose. 
 The result or the last two stages is used in combination with the results of previous frames to fit the 3D pose to a kinematic skeleton and therefore enforce temporal coherence.
-The end result of the pipeline is a full skeletal pose with joint angles for each person.
+The end result of the pipeline is a full skeleton pose with joint angles for each person.
 
 While their CNN applies a novel CNN architecture called SelecSLS to achieve real-time performance, they mention that any CNN architecture for keypoint prediction can be used.
 This makes their approach potentially be extended in the future by upcoming CNN network architectures. 
 
 They compare their approach to Microsoft Kinect V2 which uses depth sensing cameras with similar and sometimes better qualitative performance especially for scenes including occlusions. 
-In addition, results on common datasets such as MuPoTS-3D benchmark dataset \cite{singleshotmultiperson2018} and the Panoptic dataset \cite{Joo_2017_TPAMI} are presented and compared to SingleShot \cite{singleshotmultiperson2018}, LCRNet \cite{shi2024tro}, MP3D \cite{mp3d}, LCRNet++ \cite{lcrnetplusplus} and PoseNet \cite{resnet}. The only approach that had a better score was PoseNet, however it comes with other limitations one of which is the lack of real-time performance. Their own CNN SelecSLS is compared to ResNet \cite{resnet} with similar results while still also lacking real-time cababilities.
+In addition, results on common datasets such as MuPoTS-3D benchmark dataset \cite{singleshotmultiperson2018} and the Panoptic dataset \cite{Joo_2017_TPAMI} are presented and compared to SingleShot \cite{singleshotmultiperson2018}, LCRNet \cite{shi2024tro}, MP3D \cite{mp3d}, LCRNet++ \cite{lcrnetplusplus} and PoseNet \cite{resnet}. The only approach that had a better score was PoseNet, however it comes with other limitations one of which is the lack of real-time performance. Their own CNN SelecSLS is compared to ResNet \cite{resnet} with similar results while still also lacking real-time capabilities.
 However, compared to multi-view capture systems XNect has far less accuracy. 
 While occulusion is partly handled via their 2nd stage, it is far from perfect. 
-Occlusion of the neck of a person result in the entire person not being detected regarding if large parts of the body is detected. Close human interactions like hugging also leads to inaccurate results. 
+Occlusion of the neck of a person result in the entire person not being detected irregarding if large parts of the body is detected. Close human interactions like hugging also leads to inaccurate results. 
 Using previous frames to match a skeleton can lean to issues for the first frames of occlusions. The simple person tracker also lead to mismatches between the capture and therefore a swap.
 % https://universaar.uni-saarland.de/bitstream/20.500.11880/29908/1/thesis.pdf
 
@@ -88,7 +87,7 @@ The detected features of the ViT and CNN are combined and used first in a Transf
 In The final stage these landmarks are fit to a SMPL-X 3D body including multiple stages of optimization.\\
 They train their network on a pure synthetic dataset which simulating their 33 camera studio setup, consisting of single person scenes, complex interaction scenes including dance scenes with two persons and a subset focusing on hand articulations. \\
 An evaluation on the Hi4D dataset \cite{yin2023hi4d} show that their method outperform other approaches. The best in class, Avatarpose \cite{leonardis_avatarpose_2025} was beaten in tracking accuracy with a value of 13.43 to 32.10 Mean Per-Joint Position Error (mm).
-Furthermore, a direct comparison to Vicon \cite{VICON} is performed using a real evaluation dataset. Results show that there is only a minimal 1.611mm difference compared to the "gold standard". This make their technique accurate enough for many applications. An interesting comparison is also done in terms of usability and cost. Capturing a dataset with Vicon requires manual post-processing. 3 skilled technicians worked in total close to 47 hours to perform the cleanup of a 24-minute scene. Computation for the final SMPL-X format took another 25 hours. MAMMA does not require manual post-processing and took about 8 hours on an RTX-4090 to compute the final motion tracking result.\\
+Furthermore, a direct comparison to Vicon \cite{VICON} is performed using a real evaluation dataset. Results show that there is only a minimal 1.611mm difference compared to the "gold standard". This make their technique accurate enough for many applications. An interesting comparison is also done in terms of usability and cost. Capturing a dataset with Vicon requires manual post-processing. 3 skilled technicians worked in total close to 47 hours to perform the cleanup of a 24-minute scene. Computation for the final SMPL-X format took another 25 hours. This is significantly longer compared to MAMMA which does not require manual post-processing and took only about 8 hours on an RTX-4090 to compute the final motion tracking result.\\
 As for limitations heavenly occluded areas are still a problem and can cause flickering or over-smoothing. In addition, the accuracy on hand tracking is not ideal. Compared to other methods it is also not useable in real-time scenarios and a fixed studio setup with a larger amount of camera is required. 
 
 
