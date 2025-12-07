@@ -13,21 +13,10 @@ Various approaches use different body locations for their keypoints often as a r
 While there are no defined standards in the research community we have seen approaches using similar keypoint position as common datasets are using. This can be seen in the dataset HDM05 \cite{cg-2007-2} and COCO Pose \cite{coco} with their usage in OpenPose \cite{openPose_docs}. However, OpenPose also proposed their own skeleton modal body25.\\
 A common proprietary format used in the 3D graphics industry is FBX \cite{fbx_format}. It contains alongside mesh information, material and texture also skeletal animation information that can be used to store motion capture data. 
 Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent GLTF \cite{gltf_format} both are now maintained by the Khronos Group.\\
-One downside of skeleton based formats is that they lack the ability to capture body surfaces. SMPL \cite{loper_smpl_2015} 
+While these formats have support for meshes, they are targeted towards general 3D models and are therefore not optimized for storing human bodies. Furthermore, approaches producing only keypoints and skeleton based results lack the ability to capture body surfaces. SMPL \cite{loper_smpl_2015} is a format specialized to capture human skinned models and therefore are an optimal fit for motion capture approaches. Instead of storing a complex mesh for the entire body SMPL defines a base mesh and skinning equations to further refine the mesh. This is done via learned parameters from analyzing thousands of body scans. 
+SMPL-X \cite{SMPLX} improves the original model by adding tracking for hands and expressive face details as well as using update datasets for the training for the model. 
+Both offer a tool set to calculate a final mesh via vertex based linear blend skinning with learned corrective blend shapes.\\
 
-
-classic Skeleton (maybe cite some overview paper?!?!?)
-\\
-
-
-GLTF https://www.khronos.org/gltf/
-
-SMPL: A Skinned Multi-Person Linear Model \cite{loper_smpl_2015}
-
-SMPL-X format. \cite{SMPLX}
-
-Shit Vicon is doing \cite{VICON}
- 
 
 VRM File Format \cite{VRM_consortium}
 VRM Press Release \cite{vrm_press_release}

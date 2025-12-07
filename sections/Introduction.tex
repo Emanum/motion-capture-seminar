@@ -9,8 +9,8 @@
 
 % \hfill
 
-Human motion capture is heavenly used in the movie industry for computer generated imagery (CGI), dating back all the way to an animation technique called rotorscoping in 1915 by the cartoonist Max Fleischer. While the implementation of these techniques got modernized from a projected movie on a piece of paper to optical sensor based systems, the goal stayed the same: Capturing real world human motion data and translating them into a virtual representation for further processing such as in traditional 2D hand-drawn animations or modern 3D computer generated animations \cite{menache_understanding_2000}. \\
-To achieve as much accuracy as possible, traditional state-of-the-art motion capturing studios use a large quantity of high resolution and high frame rate camera systems in a multi view setup combined. This is often referred to as the "gold standard" in literature.
+Human motion capture is used in the movie industry for computer generated imagery (CGI), dating back all the way to an animation technique called rotorscoping in 1915 by the cartoonist Max Fleischer. While the implementation of these techniques got modernized from a projected movie on a piece of paper to optical sensor based systems, the goal stayed the same: Capturing real world human motion data and translating them into a virtual representation for further processing such as in traditional 2D hand-drawn animations or modern 3D computer generated animations \cite{menache_understanding_2000}. \\
+To achieve as much accuracy as possible, traditional state-of-the-art motion capturing studios use suits equipped with markers together with large quantity of high resolution and high frame rate camera systems in a multi view setup combined. This is often referred to as the "gold standard" in literature.
 Professional studio equipment as well as proprietary software is developed by companies like Vicon \cite{VICON}, Optitrack \cite{optitrack} or Qualisys \cite{qualisys}.
 While smaller areas can be captures using only 4 cameras \cite{sigal2009humaneva-8bd}. Cover corporation demonstrate the scaling possibilities of this technique by equipping a 23 m x 14 m x 3.2 m studio with 200 Vicon Valkyrie (VK-26) \cite{hololive_setup}. 
 Similar setups are also applied in the research area of human pose estimation when high accuracy is requires such as the generation of ground truth datasets. HumanEva \cite{sigal2009humaneva-8bd} build their capture setup using 4 cameras from Vicon MX. MoVi \cite{10.1371/journal.pone.0253157} combines 15 stationary Qualisys cameras and 17 IMU sensors.
@@ -19,7 +19,7 @@ Approaches following the "gold standard" usually apply fundamentally computer vi
 A first step is getting marker positions which can be done with model-based, region-based or feature-based methods \cite{wang_recent_2003}. Afterwards, multi-view geometry is applied to do 3D pose estimation. 
 During this step triangulation is used to calculate the 3D position based on the matching 2D positions from the tracked points as well as intrinsic and extrinsic camera parameters \cite{desmarais_review_2021}.
 One key challenge in motion capturing is occlusion. A simple yet effective solution to deal with this is eliminating as much of it in the first place by using multiple cameras. 
-Therefore, many state-of-the-art motion capture systems in the industry as well approaches in research use a large amount of cameras to cover as many angles as possible.
+Therefore, many state-of-the-art motion capture systems in the industry and approaches in research use a large amount of cameras to cover as many angles as possible.
 
 \hfill 
 
