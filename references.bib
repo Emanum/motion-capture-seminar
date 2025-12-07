@@ -214,6 +214,14 @@ month =Jun}
   howpublished = {\url{https://github.com/CMU-Perceptual-Computing-Lab/openpose}},
   year = {2019}
 }
+
+@misc{openPose_docs,
+  author = {Zhe Cao and Gines Hidalgo Martinez and Tomas Simon and Shih-En Wei and Yaser Sheikh},
+  title = {OpenPose: Documentation},
+  howpublished = {\url{https://cmu-perceptual-computing-lab.github.io/openpose/web/html/doc/md_doc_02_output.html}},
+  year = {2025}
+}
+
 # OPENPOSE END
 
 @misc{mocopi,
@@ -265,68 +273,6 @@ keywords = {RGB, human body pose, monocular, motion capture, real-time}
 }	
 
 
-# TOOLS
-@article{loper_smpl_2015,
-title = {{SMPL}: a skinned multi-person linear model},
-volume = {34},
-issn = {0730-0301},
-url = {https://dl.acm.org/doi/10.1145/2816795.2818013},
-doi = {10.1145/2816795.2818013},
-shorttitle = {{SMPL}},
-abstract = {We present a learned model of human body shape and pose-dependent shape variation that is more accurate than previous models and is compatible with existing graphics pipelines. Our Skinned Multi-Person Linear model ({SMPL}) is a skinned vertex-based model that accurately represents a wide variety of body shapes in natural human poses. The parameters of the model are learned from data including the rest pose template, blend weights, pose-dependent blend shapes, identity-dependent blend shapes, and a regressor from vertices to joint locations. Unlike previous models, the pose-dependent blend shapes are a linear function of the elements of the pose rotation matrices. This simple formulation enables training the entire model from a relatively large number of aligned 3D meshes of different people in different poses. We quantitatively evaluate variants of {SMPL} using linear or dual-quaternion blend skinning and show that both are more accurate than a Blend-{SCAPE} model trained on the same data. We also extend {SMPL} to realistically model dynamic soft-tissue deformations. Because it is based on blend skinning, {SMPL} is compatible with existing rendering engines and we make it available for research purposes.},
-pages = {248:1--248:16},
-number = {6},
-journaltitle = {{ACM} Trans. Graph.},
-author = {Loper, Matthew and Mahmood, Naureen and Romero, Javier and Pons-Moll, Gerard and Black, Michael J.},
-urldate = {2025-10-26},
-date = {2015-11-02},
-}
-
-@inproceedings{SMPLX,
-  title = {Expressive Body Capture: {3D} Hands, Face, and Body from a Single Image},
-  author = {Pavlakos, Georgios and Choutas, Vasileios and Ghorbani, Nima and Bolkart, Timo and Osman, Ahmed A. A. and Tzionas, Dimitrios and Black, Michael J.},
-  booktitle = {Proceedings IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},
-  pages     = {10975--10985},
-  year = {2019}
-}
-
-
-@misc{vmc_protocol_specification,
-	title = {{VMC} Protocol specification},
-  howpublished = {\url{https://protocol.vmc.info/english.html}},
-  year = {2025},
-  note = {[accessed 09-November-2025]},
-  author = {{VMCProtocol}},
-	abstract = {{VMCProtocol} - Easy-to-use motion capture protocol specifications for games, tools, distribution environments, etc.},
-	urldate = {2025-10-26},
-}
-
-@misc{Mixamo, 
-title   = {Mixamo}, 
-author  = {{Adobe}},
-url     = {https://www.mixamo.com/#/}, 
-urldate = {2025-11-08}
-}
-
-@misc{VRM_consortium,
-title   = {VRM Consortium},
-url     = {https://vrm-consortium.org/en/},
-howpublished = {\url{https://vrm-consortium.org/en/}},
-year = {2025},
-author = {{VRM Consortium}},
-note = {[accessed 09-November-2025]},
-urldate = {2025-11-09}
-}
-
-@misc{vrm_press_release,
-title = {The Khronos Group and VRM Consortium Collaborate to Advance
-International Standardization of the VRM 3D Avatar File Format},
-howpublished = {\url{https://vrm-consortium.org/en/common/pdf/VRMC%20Khronos%20Press%20Release%2020241024.pdf}},
-year = {2024},
-author = {{VRM Consortium and Khronos Group}},
-note = {[accessed 09-November-2025]},
-date = {2024-10-24},
-}
 
 # Foundational References
 @book{menache_understanding_2000,
@@ -418,9 +364,41 @@ note = {[accessed 25-November-2025]},
   note = {[accessed 25-November-2025]},
 }
 
-@misc{}
-
 # Datasets
+
+@techreport{cg-2007-2,
+   author = {M. M\"{u}ller and T. R\"{o}der and M. Clausen and B. Eberhardt and B. Kr\"{u}ger and A. Weber},
+   title = {Documentation Mocap Database HDM05},
+   number = {CG-2007-2},
+   year = {2007},
+   month = {June},
+   institution = {Universit\"{a}t Bonn},
+   ISSN = {1610-8892}
+}
+
+@InProceedings{coco,
+author="Lin, Tsung-Yi
+and Maire, Michael
+and Belongie, Serge
+and Hays, James
+and Perona, Pietro
+and Ramanan, Deva
+and Doll{\'a}r, Piotr
+and Zitnick, C. Lawrence",
+editor="Fleet, David
+and Pajdla, Tomas
+and Schiele, Bernt
+and Tuytelaars, Tinne",
+title="Microsoft COCO: Common Objects in Context",
+booktitle="Computer Vision -- ECCV 2014",
+year="2014",
+publisher="Springer International Publishing",
+address="Cham",
+pages="740--755",
+abstract="We present a new dataset with the goal of advancing the state-of-the-art in object recognition by placing the question of object recognition in the context of the broader question of scene understanding. This is achieved by gathering images of complex everyday scenes containing common objects in their natural context. Objects are labeled using per-instance segmentations to aid in precise object localization. Our dataset contains photos of 91 objects types that would be easily recognizable by a 4 year old. With a total of 2.5 million labeled instances in 328k images, the creation of our dataset drew upon extensive crowd worker involvement via novel user interfaces for category detection, instance spotting and instance segmentation. We present a detailed statistical analysis of the dataset in comparison to PASCAL, ImageNet, and SUN. Finally, we provide baseline performance analysis for bounding box and segmentation detection results using a Deformable Parts Model.",
+isbn="978-3-319-10602-1"
+}
+
 
 @inproceedings{yin2023hi4d,
   author = {Yin, Yifei and Guo, Chen and Kaufmann, Manuel and Zarate, Juan and Song, Jie and Hilliges, Otmar}, 
@@ -693,4 +671,93 @@ Multi-view Videos},
   author={Fang, Qi and Shuai, Qing and Dong, Junting and Bao, Hujun and Zhou, Xiaowei},
   booktitle={CVPR},
   year={2021}
+}
+
+
+# TOOLS
+@article{loper_smpl_2015,
+title = {{SMPL}: a skinned multi-person linear model},
+volume = {34},
+issn = {0730-0301},
+url = {https://dl.acm.org/doi/10.1145/2816795.2818013},
+doi = {10.1145/2816795.2818013},
+shorttitle = {{SMPL}},
+abstract = {We present a learned model of human body shape and pose-dependent shape variation that is more accurate than previous models and is compatible with existing graphics pipelines. Our Skinned Multi-Person Linear model ({SMPL}) is a skinned vertex-based model that accurately represents a wide variety of body shapes in natural human poses. The parameters of the model are learned from data including the rest pose template, blend weights, pose-dependent blend shapes, identity-dependent blend shapes, and a regressor from vertices to joint locations. Unlike previous models, the pose-dependent blend shapes are a linear function of the elements of the pose rotation matrices. This simple formulation enables training the entire model from a relatively large number of aligned 3D meshes of different people in different poses. We quantitatively evaluate variants of {SMPL} using linear or dual-quaternion blend skinning and show that both are more accurate than a Blend-{SCAPE} model trained on the same data. We also extend {SMPL} to realistically model dynamic soft-tissue deformations. Because it is based on blend skinning, {SMPL} is compatible with existing rendering engines and we make it available for research purposes.},
+pages = {248:1--248:16},
+number = {6},
+journaltitle = {{ACM} Trans. Graph.},
+author = {Loper, Matthew and Mahmood, Naureen and Romero, Javier and Pons-Moll, Gerard and Black, Michael J.},
+urldate = {2025-10-26},
+date = {2015-11-02},
+year = {2015}
+}
+
+@inproceedings{SMPLX,
+  title = {Expressive Body Capture: {3D} Hands, Face, and Body from a Single Image},
+  author = {Pavlakos, Georgios and Choutas, Vasileios and Ghorbani, Nima and Bolkart, Timo and Osman, Ahmed A. A. and Tzionas, Dimitrios and Black, Michael J.},
+  booktitle = {Proceedings IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {10975--10985},
+  year = {2019}
+}
+
+
+@misc{vmc_protocol_specification,
+	title = {{VMC} Protocol specification},
+  howpublished = {\url{https://protocol.vmc.info/english.html}},
+  year = {2025},
+  note = {[accessed 09-November-2025]},
+  author = {{VMCProtocol}},
+	abstract = {{VMCProtocol} - Easy-to-use motion capture protocol specifications for games, tools, distribution environments, etc.},
+	urldate = {2025-10-26},
+}
+
+@misc{Mixamo, 
+title   = {Mixamo}, 
+author  = {{Adobe}},
+url     = {https://www.mixamo.com/#/}, 
+urldate = {2025-11-08}
+}
+
+@misc{VRM_consortium,
+title   = {VRM Consortium},
+url     = {https://vrm-consortium.org/en/},
+howpublished = {\url{https://vrm-consortium.org/en/}},
+year = {2025},
+author = {{VRM Consortium}},
+note = {[accessed 09-November-2025]},
+urldate = {2025-11-09}
+}
+
+@misc{vrm_press_release,
+title = {The Khronos Group and VRM Consortium Collaborate to Advance
+International Standardization of the VRM 3D Avatar File Format},
+howpublished = {\url{https://vrm-consortium.org/en/common/pdf/VRMC%20Khronos%20Press%20Release%2020241024.pdf}},
+year = {2024},
+author = {{VRM Consortium and Khronos Group}},
+note = {[accessed 09-November-2025]},
+date = {2024-10-24},
+}
+
+
+@misc{fbx_format,
+  author = {Adobe},
+  title = {FBX Adaptable file format for 3D animation software},
+  howpublished = {\url{https://www.autodesk.com/products/fbx/overview}},
+  year = {2025}
+}
+
+@misc{Collada_format,
+  author = {Khronos Group},
+  title = {COLLADA: Collaborative Design Activity},
+  howpublished = {\url{https://www.khronos.org/collada/}},
+  year = {2025}
+}
+
+https://www.khronos.org/Gltf
+
+@misc{gltf_format,
+  author = {Khronos Group},
+  title = {glTF: The 3D Asset Delivery Format},
+  howpublished = {\url{https://www.khronos.org/gltf/}},
+  year = {2025}
 }

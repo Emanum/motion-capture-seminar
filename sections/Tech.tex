@@ -1,6 +1,26 @@
 \section{Motion Capture in Industry}
 \label{chapter_tech}
+An applied motion capture systems can be seen as a pipeline with various software modules in between. From the real human motion, the tracking and processing to the final result like a rendered 3D video, animations in a game engine, motion data as an HCI device or other real time applications.
+With a quickly involving field like motion capture it is especially important to have common file formats and protocol to exchange the tracking information in order.
+Standardized interfaces allow us to develop a modular software architecture and upgrade our tracking method later down the line without having to adapt our entire tracking to rendering pipeline. 
+This allows commercial and open source integrations into other software to be developed. \\
+Furthermore, we need benchmark datasets to measure and compare different approaches quantitatively. In applied industry applications that allows us to pick appropriated methods for a specific use case, while for research we can accurately measure if and how much a new approach improves tracking. 
+
+\subsection{Tracking Format}
+
+A simple solution to exchange tracking information is to store it as a set of certain keypoints in 2D or 3D coordinates and then serialize it either as plain text or binary file formats. 
+Various approaches use different body locations for their keypoints often as a result of different tracking methods. For marker based approaches these are usually equal to the marker position attached on the body.
+While there are no defined standards in the research community we have seen approaches using similar keypoint position as common datasets are using. This can be seen in the dataset HDM05 \cite{cg-2007-2} and COCO Pose \cite{coco} with their usage in OpenPose \cite{openPose_docs}. However, OpenPose also proposed their own skeleton modal body25.\\
+A common proprietary format used in the 3D graphics industry is FBX \cite{fbx_format}. It contains alongside mesh information, material and texture also skeletal animation information that can be used to store motion capture data. 
+Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent GLTF \cite{gltf_format} both are now maintained by the Khronos Group.\\
+One downside of skeleton based formats is that they lack the ability to capture body surfaces. SMPL \cite{loper_smpl_2015} 
+
+
 classic Skeleton (maybe cite some overview paper?!?!?)
+\\
+
+
+GLTF https://www.khronos.org/gltf/
 
 SMPL: A Skinned Multi-Person Linear Model \cite{loper_smpl_2015}
 
