@@ -35,7 +35,7 @@ Webcam Motion Capture + Sony Mocap
 https://www.sony.co.jp/en/Products/mocopi-dev/en/documents/Home/TechSpec.html
 
 
-\subsection{Datasets}
+\subsection{Datasets and Metrics}
 AMASS: Archive of Motion Capture as Surface Shapes \cite{AMASS:ICCV:2019}
 
 CMU Panoptic Studio datase
@@ -46,3 +46,25 @@ Human3.6M, HumanEva, and MPI-INF-3DHP dataset
 DanceDB (included in AMASS)
 
 UnrealEgo Akada et Al 2022\\
+
+Hi4D dataset \cite{yin2023hi4d} \\
+MuPoTS-3D benchmark dataset \cite{singleshotmultiperson2018}\\
+
+Focus on close interaction 
+Harmony4D \cite{Harmony4D}\\
+CHI3D \cite{CHI3D}\\
+Rich \cite{Rich}
+
+Focus on complex postitions:\\
+MOYO \cite{MOYO}\\
+
+Metrics:
+The most common metric for evaluation is MPJPE (Mean Per Joint Position Error) usually measure in millimeter (mm). This describes the distance between the ground truth 3D position and the tracked position. 
+A variation of this is RMSPJPE (Root Mean Squared Per Joint Position Error) that uses the root-mean-square instead of a simple mean.\\
+For approaches that output mesh, surface or SMPL data MPVE (Mean Per Vertex Error) is used instead. This measures the error at each mesh vertex.
+Other metrics are PCP3D (Percentage of Correct Parts 3D) which tracks the amount of correct classified body parts. 
+Similar to this PCK3D (Percentage of Correct Keypoints 3D) tracks the amount of correct classified keypoints. 
+A pose/keypoint is correctly classified when the euclidean distance between the estimated pose/keypoint and the ground truth pose/keypoint is below a certain threshold $\alpha$. 
+Based on the percentage metric a recall and precision can be calculated which in turn allows a metric called mAP or AP (mean Average Precision) to be defined. This is often further refined by adding the threshold to the metric, for example AP\textsubscript{50} for an average precision with a threshold of 50mm.
+MRPE (Mean of the Root Position Error) compares the position of a root keypoint in absolute values (mm).
+For approaches using IMU sensors flickering is an issue, therefore jitter is measured here as well. This describes the mean jerk (time derivate of acceleration) for all body joints often measured in $km/s^3$. Which can be perceived as smoothness of the animation.
