@@ -35,30 +35,33 @@ Webcam Motion Capture + Sony Mocap
 https://www.sony.co.jp/en/Products/mocopi-dev/en/documents/Home/TechSpec.html
 
 
-\subsection{Datasets and Metrics}
-AMASS: Archive of Motion Capture as Surface Shapes \cite{AMASS:ICCV:2019}
+\subsection{Datasets}
 
-CMU Panoptic Studio datase
+% Some approaches provide their own datasets for training and evaluation due to some special requirements in terms of sensors. 
+% However, we are focusing on datasets that have seen adoption is multiple papers and sure as a benchmark purpose.\\
+AMASS (Archive of Motion Capture as Surface Shapes) \cite{AMASS:ICCV:2019} is a collection of 24 different motion capture datasets from various puplications. It contains in total 500 subjects more than 17 000 motions in about 3800 minutes. 
+AMASS combines all datasets in a standardized form by converting various keypoint locations to a uniform SMPL and SMPL-X format with their own algorithm MoSh++. 
+The collection does not provide the original RGB videos or other sensors data, instead a custom computer generated render video is contained alongside the SMPL-X parameter for each sequence.
+The collection contains datasets of varying detail levels and features (facial tracking, hand tracking). Therefore, some data might be inaccurate as a result of the generalization.
+The following datasets are contained: 
+ACCAD \cite{AMASS_ACCAD} BMLhandball \cite{AMASS_BMLhandball} BMLmovi \cite{AMASS_BMLmovi} BMLrub\cite{AMASS_BMLrub}
+CMU \cite{AMASS_CMU} DanceDB \cite{AMASS_DanceDB} DFaust\cite{AMASS_DFaust} EyesJapanDataset \cite{AMASS_EyesJapanDataset}
+GRAB \cite{AMASS_GRAB} GRAB2 \cite{AMASS_GRAB-2} HDM05 \cite{AMASS_HDM05} HUMAN4D \cite{AMASS_HUMAN4D}
+HumanEva \cite{AMASS_HumanEva} KIT \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN} KIT2 \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN-2} KIT3 \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN-3}
+MOYO \cite{AMASS_MOYO} MoSh \cite{AMASS_MoSh} PosePrior \cite{AMASS_PosePrior} SFU \cite{AMASS_SFU}
+SOMA \cite{AMASS_SOMA} TCDHands \cite{AMASS_TCDHands} TotalCapture \cite{AMASS_TotalCapture} WheelPoser \cite{AMASS_WheelPoser}\\
+The CMU Panoptic dataset \cite{Joo_2017_TPAMI} contains 65 sequences in 5.5 hours. Their studio setup is build as a 6 m diameter sized dome equipped with 480 low resolution and 31 high resolution cameras as well as 10 Kinect depth sensors and 5 DLP projectors for the high resolution cameras. It contains various single and multi person scenes including interaction between humans and other objects like playing instruments or dancing.\\
+% Human3.6M, HumanEva, and MPI-INF-3DHP dataset
+We have also seen some datasets focusing on certain use cases. Particular interesting are datasets that cover close human interaction. The Hi4D dataset \cite{yin2023hi4d} captures 100 sequences with interaction like hugging, dancing or fighting. It comes with SMPL parameters and a 4D scan as ground truth. 
+Harmony4D \cite{Harmony4D} also focuses on similar sequences and comes with multi view camera videos.
+CHI3D \cite{CHI3D} is another relevant dataset for close interactions. While they do not provide SMPL parameters special labels for interactions are included alongside a skeleton. In addition, a ranking of different approaches on their benchmark dataset is present on their website.
+Rich \cite{Rich} covers interaction of humans to scenes objects like climbing and sitting while also annotating contact surfaces.
+DanceDB \cite{AMASS_DanceDB} focuses on various dance scenes and contains RGB videos along a skeleton in FBX, BVH and C3D. SMPL format is available in the AMASS collection.
+MOYO \cite{AMASS_MOYO} captures extreme poses that are rare in other dataset. This is done by tracking various yoga pose sequences.
+Another dataset used for benchmarks is MuPoTS-3D benchmark dataset \cite{singleshotmultiperson2018} that captures various sequences in the wild with annotated skeleton labels.
 
-Human3.6M, HumanEva, and MPI-INF-3DHP dataset
+\subsection{Evaluation Metrics}
 
-
-DanceDB (included in AMASS)
-
-UnrealEgo Akada et Al 2022\\
-
-Hi4D dataset \cite{yin2023hi4d} \\
-MuPoTS-3D benchmark dataset \cite{singleshotmultiperson2018}\\
-
-Focus on close interaction 
-Harmony4D \cite{Harmony4D}\\
-CHI3D \cite{CHI3D}\\
-Rich \cite{Rich}
-
-Focus on complex postitions:\\
-MOYO \cite{MOYO}\\
-
-Metrics:
 The most common metric for evaluation is MPJPE (Mean Per Joint Position Error) usually measure in millimeter (mm). This describes the distance between the ground truth 3D position and the tracked position. 
 A variation of this is RMSPJPE (Root Mean Squared Per Joint Position Error) that uses the root-mean-square instead of a simple mean.\\
 For approaches that output mesh, surface or SMPL data MPVE (Mean Per Vertex Error) is used instead. This measures the error at each mesh vertex.
