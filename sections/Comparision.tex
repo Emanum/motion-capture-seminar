@@ -74,52 +74,89 @@ While you don't have to include a discussion section, it is encouraged that you 
 }
 
 
-% \pagebreak
-% \thispagestyle{empty}
-% \begin{landscape}
+\pagebreak
+\thispagestyle{empty}
+\begin{landscape}
 
-% \centering
-% \renewcommand{\arraystretch}{1.5}
-% \begin{tabularx}{\linewidth} { 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X 
-%   | >{\centering\arraybackslash}X | }
-%  \hline
-%  \textbf{Dataset} & \textbf{OpenPose} & \textbf{DeMoCap} & \textbf{XNect} & \textbf{Ultra Inertial Poser} & \textbf{MAMMA} & \textbf{SimPoE} & \textbf{Avatarpose} & \textbf{PACE} \\
-%  \hline
-%  COCO &  &  &  &  &  &  &  &  \\
-%  \hline
-%  MPII &  &  &  &  &  &  &  &  \\
-%  \hline
-%  SFU Dataset &  &  &  &  &  &  &  &  \\
-%  \hline
-%  MuPoTS-3D &  &  &  &  &  &  &  &  \\
-%  \hline
-%  Panoptic &  &  &  &  &  &  &  &  \\
-%  \hline
-%  Hi4D &  &  &  &  &  &  &  &  \\
-%  \hline
-%  Harmony4D &  &  &  &  &  &  &  &  \\
-%  \hline
-%  RICH &  &  &  &  &  &  &  &  \\
-%  \hline
-%  AMASS &  &  &  &  &  &  &  &  \\
-%  \hline
-%  Synthetic &  &  &  &  &  &  &  &  \\
-%  \hline
-%  Proprietary &  &  &  &  &  &  &  &  \\
-%  \hline
-% \end{tabularx}
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\linewidth} { 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X 
+  | >{\centering\arraybackslash}X | }
+ \hline
+ \textbf{Dataset} & \textbf{OpenPose} & \textbf{DeMoCap} & \textbf{XNect} & \textbf{Ultra Inertial Poser} & \textbf{MAMMA} & \textbf{SimPoE} & \textbf{Avatarpose} & \textbf{PACE} \\
+ \hline
+ COCO &  &  &  &  &  &  &  &  \\
+ \hline
+ MPII &  &  &  &  &  &  &  &  \\
+ \hline
+ SFU Dataset &  &  &  &  &  &  &  &  \\
+ \hline
+ MuPoTS-3D &  &  &  &  &  &  &  &  \\
+ \hline
+ Panoptic &  &  &  &  &  &  &  &  \\
+ \hline
+ Hi4D &  &  &  &  &  &  &  &  \\
+ \hline
+ Harmony4D &  &  &  &  &  &  &  &  \\
+ \hline
+ RICH &  &  &  &  &  &  &  &  \\
+ \hline
+ AMASS &  &  &  &  &  &  &  &  \\
+ \hline
+ Synthetic &  &  &  &  &  &  &  &  \\
+ \hline
+ Proprietary &  &  &  &  &  &  &  &  \\
+ \hline
+\end{tabularx}
 
-% \vspace{0.5cm}
-% \textbf{Table 2:} Comparison of motion capture approaches and their evaluation datasets. This table shows which datasets are used for training and evaluation by each approach.
+\vspace{0.5cm}
+\textbf{Table 2:} Comparison of motion capture approaches and their evaluation datasets. This table shows which datasets are used for training and evaluation by each approach.
 
-% \end{landscape}
+\end{landscape}
 
-% \pagebreak
+\pagebreak
+
+% MPJPE 
+% DEMOCAP
+% SFU Dataset: MPJPE: 45,28 ; mAP50 75,46%
+% cite AMASS_SFU
+% 
+
+% XNECT:
+% MuPoTS-3D: 3DPCK with 150mm: 70,4
+% Human3.6m: MPJPE 63,6
+% MPI-INF-3DHP: MJPE 115.0
+
+
+% Ultra Intertial Poser
+% Joint position error MPJPE: 
+% DanceDB: 7.45 cm
+% DIP-IMU: 5.02 cm
+% 
+% 
+
+% MAMMA 
+% Hi4D: 13.43 mm
+% RICH: 23.6 mm
+% Harmony4D: 42.23 mm
+% CHI3D: 31.14mm
+% MOYO: 22.6mm
+
+
+% SIMPoe
+% Human 3.6M: 56.7mm
+
+% Avatarposer
+% Hi4D: 32.1mm
+% CHI3D: 32.98mm
+
+% PACE:
+% RICH: 46.2mm 
