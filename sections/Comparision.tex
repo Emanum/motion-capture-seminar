@@ -79,9 +79,9 @@ While you don't have to include a discussion section, it is encouraged that you 
 \begin{landscape}
 
 \centering
-\renewcommand{\arraystretch}{1.5}
+\footnotesize
+\renewcommand{\arraystretch}{1.6}
 \begin{tabularx}{\linewidth} { 
-  | >{\centering\arraybackslash}X 
   | >{\centering\arraybackslash}X 
   | >{\centering\arraybackslash}X 
   | >{\centering\arraybackslash}X 
@@ -91,34 +91,32 @@ While you don't have to include a discussion section, it is encouraged that you 
   | >{\centering\arraybackslash}X 
   | >{\centering\arraybackslash}X | }
  \hline
- \textbf{Dataset} & \textbf{OpenPose} & \textbf{DeMoCap} & \textbf{XNect} & \textbf{Ultra Inertial Poser} & \textbf{MAMMA} & \textbf{SimPoE} & \textbf{Avatarpose} & \textbf{PACE} \\
+ \textbf{Dataset} & \textbf{DeMoCap} & \textbf{XNect} & \textbf{Ultra Inertial Poser} & \textbf{MAMMA} & \textbf{SimPoE} & \textbf{Avatarpose} & \textbf{PACE} \\
  \hline
- COCO &  &  &  &  &  &  &  &  \\
+ \textbf{Hi4D} &  &  &  & 13.43 &  & 32.1 &  \\
  \hline
- MPII &  &  &  &  &  &  &  &  \\
+ \textbf{RICH} &  &  &  & 23.6 &  &  & 46.2 \\
  \hline
- SFU Dataset &  &  &  &  &  &  &  &  \\
+ \textbf{Harmony4D} &  &  &  & 42.23 &  &  &  \\
  \hline
- MuPoTS-3D &  &  &  &  &  &  &  &  \\
+ \textbf{CHI3D} &  &  &  & 31.14 &  & 32.98 &  \\
  \hline
- Panoptic &  &  &  &  &  &  &  &  \\
+ \textbf{MOYO} &  &  &  & 22.6 &  &  &  \\
  \hline
- Hi4D &  &  &  &  &  &  &  &  \\
+ \textbf{Human3.6M} &  & 63.6 &  &  & 56.7 &  &  \\
  \hline
- Harmony4D &  &  &  &  &  &  &  &  \\
+ \textbf{MPI-INF-3DHP} &  & 115.0 &  &  &  &  &  \\
  \hline
- RICH &  &  &  &  &  &  &  &  \\
+ \textbf{DanceDB (IMU)} &  &  & 74.5 &  &  &  &  \\
  \hline
- AMASS &  &  &  &  &  &  &  &  \\
+ \textbf{DIP-IMU} &  &  & 50.2 &  &  &  &  \\
  \hline
- Synthetic &  &  &  &  &  &  &  &  \\
- \hline
- Proprietary &  &  &  &  &  &  &  &  \\
+ \textbf{SFU Dataset} & 45.28 &  &  &  &  &  &  \\
  \hline
 \end{tabularx}
 
 \vspace{0.5cm}
-\textbf{Table 2:} Comparison of motion capture approaches and their evaluation datasets. This table shows which datasets are used for training and evaluation by each approach.
+\textbf{Table 2:} Quantitative Comparison of the approaches for tracking accuracy. Values represent Mean Per-Joint Position Error (MPJPE) in millimeters. Note that the evaluation on each approach was not standardized due to the large difference of the approaches. So the quantitative numbers should only be taken as a relative comparison between the approaches. For detailed benchmark results refer to the individual papers.
 
 \end{landscape}
 
