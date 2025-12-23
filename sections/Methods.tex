@@ -10,7 +10,7 @@ MAMMA \ref{method_mamma} is a recent paper, presented in december 2025, which ca
 While the paper is only available as a preprint, we still believe it is highly relevant due to their impressive results 
 Furthermore, the authors are related to the Max Planck Institute for Intelligent Systems and Carnegie Mellon University from where we have seen other interesting approaches in the past. 
 
-\subsection{OpenPose - marker less 2D}
+\subsection{OpenPose - Marker less 2D}
 \label{method_openpose}
 
 OpenPose is a popular open-source framework for real-time 2D multi-person and 3D single-person pose estimation with over 30K stars on GitHub.
@@ -18,20 +18,20 @@ There are multiple publications related to OpenPose. Convolutional Pose Machines
 Each network describes a stage, the output of one stage is used as input for the next stage. By using a fully differentiable model they can use backpropagation for training. One issue with their approach is handling multiple people in the same image.\\
 This is addressed in their next publication with Part Affinity Fields \cite{openPose_3_cao2017realtime}. A bottom-up approach is used. This means that first body parts are detected and afterwards assigned to an unknown number of people in the image.
 They extend their sequential architecture with a two-branch approach. One branch predicts part affinity fields which encode position and orientation of limbs in a 2D vector field, another the confidence maps of body parts at a certain location. By using techniques from graph theory, they can match these body parts to the vector field and also combine them into a full body pose. With their architecture and greedy matching algorithm, they can achieve real-time multi-person 2D pose estimation. \\
-In \cite{openPose_2_simon2017hand}, they propose a method that produces 3D motion capture results handling complex Occlusion scenarios. They build up on their previous models to predict 2D estimation via multiple camera angles. The result is then triangulated to get 3D results. 
+In \cite{openPose_2_simon2017hand}, Simon et al. propose a method that produces 3D motion capture results handling complex Occlusion scenarios. They build up on their previous models to predict 2D estimation via multiple camera angles. The result is then triangulated to get 3D results. 
 However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.
-In \cite{openPose}, they extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github} they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
+In \cite{openPose}, Cao et al. extend their 2D multi-person pose estimation to also include foot keypoints and facial landmarks, compared to their previous wor they only use Part Affinity Fields. Furthermore, this work also does not include any 3D motion capture cababilities. In their GitHub \cite{openPose_github}, they provide an option to detect 3D keypoints including face, hand and foot features using multiple cameras. However, as it uses simple triangulation it has the limitation of a fixed camera setup and only works with a single person in the scene.
 
-\subsection{DeMoCap - marker based 3D}
+\subsection{DeMoCap - Marker based 3D}
 \label{method_democap}
-DeMoCap \cite{chatzitofis2021democap} is a marker based 3D motion capture system. Their work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
+DeMoCap \cite{chatzitofis2021democap} is a marker based 3D motion capture system. Chatzitofis et al. work includes the method itself, focused on providing a low-cost alternative to the classical optical marker based solutions by using consumer-grade infrared-depth camera only. In addition, they release the dataset used for training, which contains colored infrared and depth images with 3D pose and marker annotations in multiple views. The ground truth data comes from professional motion capture system with 24 cameras while the depth data comes from 4 stereo based depth sensors.\\
 Their proposed method works as follows: First for each of the multi-view depth images 3D positions of the markers are extracted and normalized. This work as each marker reflects the infrared rays with a different intensity therefore identifying the marker. 
 These markers together with joint heatmaps are fed into a fully convolutional network that transforms the markers to poses. This is done via their own 3D regression model. \\
-While their methods performs quiet good even under complex scenarios on public datasets such as the SFU Dataset \cite{sfudataset} it comes with some serious limitations. 
+While their methods performs quite good even under complex scenarios on public datasets such as the SFU Dataset \cite{sfudataset} it comes with some serious limitations. 
 Their used depth sensors have a distance limitation of 4 meters, which limits the capture space significantly especially compared to optical sensor based systems. Furthermore, the quantity of fast poses are challenging due to the low 30hz frequency of the sensor. 
 With only 2-4 cameras required the system is fairly mobile and quickly to set up. However, it requires the actor to wear a special suit with 53 placed markers which make it far from ideal for applications in the wild.
 
-\subsection{XNect - marker less 3D}
+\subsection{XNect - Marker less 3D}
 \label{method_xnect}
 
 Xnect \cite{mehta_xnect_2020} is a real-time marker less approach that is powered by a single monocular RGB based camera and can provide temporally coherent 3D tracking for multiple people in diverse scenes in the wild.
@@ -77,7 +77,7 @@ However, they do not compare their approach against camera based tracking method
 % Issues: missing Real world, drift, hard poses not captured as no training data
 
 
-\subsection{MAMMA - offline 3D gold standard competitor}
+\subsection{MAMMA - offline 3D Gold Standard Competitor}
 \label{method_mamma}
 
 Traditional "gold standard" motion capture studio use marker based methods to produce sub-millimeter accurate tracking. MAMMA (Markerless and Accurate Multi-person Motion Automatic capture) \cite{cuevas2025mamma} claim to achieve similar results with a markerless approach in a studio setup including 33 RGB cameras.
