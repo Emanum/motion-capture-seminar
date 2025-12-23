@@ -20,20 +20,12 @@ It formulates a function which takes tracking parameters along with a pre learne
 SMPL comes with the weights for the model which is trained by analyzing thousands of body scans.  
 % Therefore, trading runtime speed against storage capacity. 
 SMPL-X \cite{SMPLX} improves the original model by adding tracking for hands and expressive face details as well as using an updated dataset for training.
-Both offer along the actual storage and model mechanism tools to calculate a final mesh. This is done via vertex based linear blend skinning with learned corrective blend shapes.\\
-
-
-VRM File Format \cite{VRM_consortium}
-VRM Press Release \cite{vrm_press_release}
-
-VMC Protocol Specification \cite{vmc_protocol_specification}
-
-
-Sony Mocap Protocol https://www.sony.co.jp/en/Products/mocopi-dev/en/documents/Home/TechSpec.html
-
-Webcam Motion Capture + Sony Mocap
-https://www.sony.co.jp/en/Products/mocopi-dev/en/documents/Home/TechSpec.html
-
+Both offer along the actual storage and model mechanism tools to calculate a final mesh. This is done via vertex based linear blend skinning with learned corrective blend shapes.\\\\
+The VRM File Format \cite{VRM_consortium} is based on glTF 2.0 and build specifically for exchanging humanoid 3D avatar data in VR/AR applications. This includes motion capture data in the form of a standardized bone structure as well as all information needed for an 3D application to create and render the 3D avatar.
+This allows one format to be used within the entire lifecycle of the 3D model from its creation in the form of a 3D vertex mesh, texturing and rigging to the final usage in a 3D graphics engine application such as a game or video content. Rigging describes the process of mapping motion capture data to artistic animations of the character. While eye movements are tracked permanently via an artificial bone, emotions are controlled via toggles to allow certain face expressions defined by the artist. Secondary animation allow artists to create their own bones and associated weight parameters for the animation of hair, clothes or other accessories.
+\cite{VRM_PDF} \cite{vrm_press_release}.\\
+While VRM allows parties to exchange the model and their bone structure itself it does not handle real time streaming of motion capture data. The VMC Protocol Specification \cite{vmc_protocol_specification} solves this gap by integrating the VRM format with Open Sound Control (OSC)\cite{OpenSoundControl}. OSC was originally developed as a better alternative to the MIDI format to transmit instrument data. 
+This allows to package motion capture data into single UDP packages and stream it via Ethernet in real time.
 
 \subsection{Datasets}
 
