@@ -25,7 +25,10 @@ The VRM File Format \cite{VRM_consortium} is based on glTF 2.0 and build specifi
 This allows one format to be used within the entire lifecycle of the 3D model from its creation in the form of a 3D vertex mesh, texturing and rigging to the final usage in a 3D graphics engine application such as a game or video content. Rigging describes the process of mapping motion capture data to artistic animations of the character. While eye movements are tracked permanently via an artificial bone, emotions are controlled via toggles to allow certain face expressions defined by the artist. Secondary animation allow artists to create their own bones and associated weight parameters for the animation of hair, clothes or other accessories.
 \cite{VRM_PDF} \cite{vrm_press_release}.\\
 While VRM allows parties to exchange the model and their bone structure itself it does not handle real time streaming of motion capture data. The VMC Protocol Specification \cite{vmc_protocol_specification} solves this gap by integrating the VRM format with Open Sound Control (OSC)\cite{OpenSoundControl}. OSC was originally developed as a better alternative to the MIDI format to transmit instrument data. 
-This allows to package motion capture data into single UDP packages and stream it via Ethernet in real time.
+This allows to package motion capture data into single UDP packages and stream it via Ethernet in real time. Applications supporting the VMC can be categorized into sender for bone or facial data and receiver for rendering or further processing the motion capture data often in combination with an VRM model.
+This also allows receiver apps to decouple motion capture software from the actual rendering.
+VRM and VMC has seen adoption for a broad range of VTuber streaming software such as Warudo \cite{warudo_app} or VSeeFace \cite{vseeface_app}. Furthermore, we have also seen creators publishing their models in VRM on specific build platforms such as VRoidHub \cite{vroid_hub} or VGen \cite{vgen_vrm}.
+Virtual worlds such as Vket \cite{vket_vrm} support the usage of such avatars in a real time VR experience.
 
 \subsection{Datasets}
 
