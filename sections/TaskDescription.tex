@@ -1,6 +1,14 @@
 \section{Problem Statement}
 \label{chapter_task}
 
-Describe the Task that needs to be solved in general. 
-Realtime, Occlusion, Low cost
-
+Online videos and live-streaming using virtual avatars (VTuber) has become popular in the recent years. Many creators are using 2D based avatars and motion capture software which tracks facial features in order to animate 2D images in real time. This technique is often referred to as Live2D \cite{live2d_cubism}.
+% The main limitation here being the manual rigging processes and artistic freedom to express themselves. 
+We also have seen creators performing online using 3D avatars.
+Facial or even upper body movement can be tracked from a single frontal camera or using Apple ARKit Blendshapes \cite{arkit_face_tracking} as demonstrated by the software VSeeFace \cite{vseeface_app}. Whole body tracking is still an ongoing challenge. \\\\
+Our particular use case focuses on live concerts performed with 3D avatars. The location and scale of these events can range from small venues with a few hundred viewers \cite{shinkaifes}, medium scale concert halls \cite{kmnz_4th_live} with a few thousand visitors to large concert venues with more than 10 thousand participants \cite{suisei_budokan} \cite{regloss_flashpoint}.
+While the scale varies greatly the required task stays similar.
+Many similarities are shared with research in motion capture for dance performances as discussed in DanceDB \cite{AMASS_DanceDB} and Hi4D dataset \cite{yin2023hi4d}. These include tracking of multiple people, extreme poses and close human interactions.
+Combining these task with real time tracking and further required real time rendering make it stand out from more traditional dance tracking methods.\\
+Big music labels supporting large artist can achieve these tasks with state-of-the-art gold standard equipment like Vicon \cite{hololive_setup}. For smaller creators affordable low-cost hardware would be preferred to lower the entry barrier and reduce overall costs.
+Another consideration is the mobility and required time to set up the mocap studio on site. Especially setup with marker based suits could introduce delays during a concert with many creators performing.  \\
+In terms of drawbacks, tracking accuracy (MPJPE) is negligible as long as the smoothness, measured in jitter, is low enough to be unnoticeable during a live concert.
