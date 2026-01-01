@@ -1,19 +1,25 @@
 \section{Discussion}
 \label{chapter_discussion}
 
-\open{
-While you don't have to include a discussion section, it is encouraged that you try to add to existing knowledge in some way. This may be through comparison of existing methods, critical reflection, etc.}
+In Table \hyperref[tab:comparison]{1}, we summarized the approaches from Chapter \ref{chapter_methods} and compared them to each other based on the sensor setup, their output data, time complexity and their key limitations. 
+Furthermore, we also added 3 more interesting approaches that were not discussed in details in 
+Chapter \ref{chapter_methods}
+Table \hyperref[tab:dataset]{2} compares the approaches in terms of tracking accuracy (MPJPE).\\\\
+Based on the requirements for our task set in Chapter \ref{chapter_task} we are evaluating which kind of approach could be fitting. 
+In general, we can see that optical camera based systems are preferred due to lower susceptibility to jitter and drift errors compared to IMU sensors as seen in Ultra Inertial Poser \cite{UltraInertialPoser}. 
+The limitations in distance and refresh for depth sensors as seen in DeMoCap \cite{chatzitofis2021democap} further suggest the usage of optical cameras instead.
+Furthermore, in order to reduce occlusion errors and capture close human interaction as good as possible using multiple camera angles seems unavoidable as the results of XNect \ref{method_xnect} and other single RGB camera approaches like SimPoE \cite{simpoe} or PACE \cite{PACE} show us. 
+In order to use existing 3D models during a live show support for the VRM format is unavoidable.
+While SMPL(X) offers great tracking potential we do not see the need for it in our use-case. A method with VMC support would solve a lot of issues for integrating new motion capture tools to existing workflow pipelines.
+Methods design to work in the wild like PACE \cite{PACE} or EgoPoser \cite{jiang2024egoposer} are impressive but seem to be more suited for wearable AR/VR devices than multi-person tracking in a studio setup.\\
+The combination of multi person tracking during a realtime scenarios still serves as a great challenge as our literature review shows. From the 8 approaches in Table \hyperref[tab:comparison]{1} only XNect \ref{method_xnect} fulfilled both of these requirements.
+However, if we ignore the realtime aspect MAMMA \cite{cuevas2025mamma} and Avatarpose \cite{leonardis_avatarpose_2025} seems to be the best approaches for our use-case. 
+In their current setup MAMMA focus on tracking accuracy and applies 33 cameras which is considerable higher than other methods that work in realtime.
+Therefore, we hope that we will see upcoming approaches with focusing on realtime instead of tracking accuracy while still allowing to track multiple people.
 
-% Modal based constraints: 
 
 
-% we fit a model-based skeleton to the 3D and 2D predictions in order
-% to satisfy kinematic constraints and reconcile the 2D and 3D predic-
-% tions across time -> XNect
-
-
-% Below is a table positioned exactly here:\\
-
+% TABLE --------------
 \noindent\makebox[\textwidth]{%
 \begin{tabularx}{1.4\textwidth} { 
   | >{\raggedright\arraybackslash}X 
@@ -75,8 +81,7 @@ While you don't have to include a discussion section, it is encouraged that you 
 
 \vspace{0.5cm}
 \textbf{Table 1:} Qualitative Comparisons of the approaches including their general sensor setup and key limitations.
-\label{table1}
-
+\label{tab:comparison}
 
 \pagebreak
 \thispagestyle{empty}
@@ -120,8 +125,9 @@ While you don't have to include a discussion section, it is encouraged that you 
 \end{tabularx}
 
 \vspace{0.5cm}
-\textbf{Table 2:} Quantitative Comparison of the approaches for tracking accuracy. Values represent Mean Per-Joint Position Error (MPJPE) in millimeters. Note that the evaluation on each approach was not standardized due to the large difference of the approaches. So the quantitative numbers should only be taken as a relative comparison between the approaches. For detailed benchmark results refer to the individual papers.
-\label{table2}
+\textbf{Table 2:} Quantitative comparison of the approaches for tracking accuracy. Values represent Mean Per-Joint Position Error (MPJPE) in millimeters. Note that the evaluation on each approach was not standardized due to the large difference of the approaches. So the quantitative numbers should only be taken as a relative comparison between the approaches. For detailed benchmark results refer to the individual papers.
+\label{tab:dataset}
+
 
 % MPJPE 
 % DEMOCAP
