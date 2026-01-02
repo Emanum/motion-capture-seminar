@@ -12,10 +12,10 @@ Furthermore, in order to reduce occlusion errors and capture close human interac
 In order to use existing 3D models during a live show support for the VRM format is unavoidable.
 While SMPL(X) offers great tracking potential we do not see the need for it in our use-case. A method with VMC support would solve a lot of issues for integrating new motion capture tools to existing workflow pipelines.
 Methods design to work in the wild like PACE \cite{PACE} or EgoPoser \cite{jiang2024egoposer} are impressive but seem to be more suited for wearable AR/VR devices than multi-person tracking in a studio setup.\\
-The combination of multi person tracking during a realtime scenarios still serves as a great challenge as our literature review shows. From the 8 approaches in Table \hyperref[tab:comparison]{1} only XNect \ref{method_xnect} fulfilled both of these requirements.
-However, if we ignore the realtime aspect MAMMA \cite{cuevas2025mamma} and Avatarpose \cite{leonardis_avatarpose_2025} seems to be the best approaches for our use-case. 
-In their current setup MAMMA focus on tracking accuracy and applies 33 cameras which is considerable higher than other methods that work in realtime.
-Therefore, we hope that we will see upcoming approaches with focusing on realtime instead of tracking accuracy while still allowing to track multiple people.
+The combination of multi person tracking during a real-time scenarios still serves as a great challenge as our literature review shows. From the 8 approaches in Table \hyperref[tab:comparison]{1} only XNect \ref{method_xnect} fulfilled both of these requirements.
+However, if we ignore the real-time aspect MAMMA \cite{cuevas2025mamma} and Avatarpose \cite{leonardis_avatarpose_2025} seems to be the best approaches for our use-case. 
+In their current setup MAMMA focus on tracking accuracy and applies 33 cameras which is considerable higher than other methods that work in real-time.
+Therefore, we hope that we will see upcoming approaches with focusing on real-time instead of tracking accuracy while still allowing to track multiple people.
 
 
 
@@ -30,17 +30,17 @@ Therefore, we hope that we will see upcoming approaches with focusing on realtim
  \hline
  \textbf{Approach} & \textbf{Sensor Setup} & \textbf{Output} & \textbf{Time complexity} & \textbf{Key Limitations} \\
  \hline
- \textbf{OpenPose} 2021 \cite{openPose} (\ref{method_openpose}) & markerless \newline single RGB camera for 2D \break multi-view RGB cameras for 3D & multi person 2D keypoints including foot and hands. Option for single person 3D keypoints via triangulation in a multi-view setup & realtime & 3D capabilities very limited; Body occlusion and high crowded images lead to false keypoints. \\
+ \textbf{OpenPose} 2021 \cite{openPose} (\ref{method_openpose}) & markerless \newline single RGB camera for 2D \break multi-view RGB cameras for 3D & multi person 2D keypoints including foot and hands. Option for single person 3D keypoints via triangulation in a multi-view setup & real-time & 3D capabilities very limited; Body occlusion and high crowded images lead to false keypoints. \\
  \hline
- \textbf{DeMoCap} 2021 \cite{chatzitofis2021democap} (\ref{method_democap}) & 53 body markers \newline  + 4 low-cost depth cameras  & single person 3D pose in SMPL & realtime & limited capture space due to 4m range limit of sensors \newline required 53 markers or retraining \\
+ \textbf{DeMoCap} 2021 \cite{chatzitofis2021democap} (\ref{method_democap}) & 53 body markers \newline  + 4 low-cost depth cameras  & single person 3D pose in SMPL & real-time & limited capture space due to 4m range limit of sensors \newline required 53 markers or retraining \\
  \hline
- \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB camera & multi person 3D pose as Skeleton & realtime & Occlusion of neck leads to complete loss of person; Issues with complex interactions; person mismatch between frames \\
+ \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB camera & multi person 3D pose as Skeleton & real-time & Occlusion of neck leads to complete loss of person; Issues with complex interactions; person mismatch between frames \\
  \hline
- \textbf{Ultra Inertial Poser} 2024 \cite{UltraInertialPoser} (\ref{method_uip}) &  6 wearable trackers with IMU + UWB & single person 3D pose in SMPL & realtime & clear visible jitter artifacts; low tracking position accuracy (order of 5-11 cm)  \\
+ \textbf{Ultra Inertial Poser} 2024 \cite{UltraInertialPoser} (\ref{method_uip}) &  6 wearable trackers with IMU + UWB & single person 3D pose in SMPL & real-time & clear visible jitter artifacts; low tracking position accuracy (order of 5-11 cm)  \\
  \hline
  \textbf{MAMMA} 2025 \cite{cuevas2025mamma} (\ref{method_mamma}) & 33 high quality RGB cameras & multi person 3D pose in SMPL-X & offline; processing duration around 3x than recording & high number of camera required; low mobility \\
  \hline
- \textbf{SimPoE} 2021 \cite{simpoe} & single RGB camera & single person 3D pose (compatible with body mesh models like SMPL)& realtime & requires 3D scene modeling; no comparison to multi-view approaches; no interaction / complex scenes  \\
+ \textbf{SimPoE} 2021 \cite{simpoe} & single RGB camera & single person 3D pose (compatible with body mesh models like SMPL)& real-time & requires 3D scene modeling; no comparison to multi-view approaches; no interaction / complex scenes  \\
  \hline
  \textbf{Avatarpose} 2024 \cite{leonardis_avatarpose_2025} & sparse set of RGB cameras & multi person 3D pose in SMPL & offline & no hand tracking; issues when initial pose is in opposite direction  \\
  \hline
@@ -62,13 +62,13 @@ Therefore, we hope that we will see upcoming approaches with focusing on realtim
  \hline
 %  \textbf{EasyMocap} \cite{easymocap} \cite{shuai2022multinb} \cite{lin2022efficient} \cite{dong2021fast} \cite{dong2020motion} \cite{peng2021neural} \cite{fang2021mirrored} & single or multi view RGB camers & multi person 3D pose in SMPL & & \\
 %  \hline
-% \textbf{EgoPoser} 2024 \cite{jiang2024egoposer}  & egocentric wide angle RGB camera from HMD devices & single person 3D pose in SMPL & realtime & \\
+% \textbf{EgoPoser} 2024 \cite{jiang2024egoposer}  & egocentric wide angle RGB camera from HMD devices & single person 3D pose in SMPL & real-time & \\
 %  \hline
 %  \textbf{FLAG} 2022 \cite{FLAG} & & & & \\
 %  \hline
 %  \textbf{EgoPoser} \cite{jiang2024egoposer} & & & & worse than SimPoe\\
 %  \hline
-%  \textbf{TransPose} 2021 \cite{TransPose} & 6 wearable IMU sensors & & realtime & \\
+%  \textbf{TransPose} 2021 \cite{TransPose} & 6 wearable IMU sensors & & real-time & \\
 %  \hline
 %  \textbf{EgoLocate} \cite{EgoLocate2023} & & & & \\
 %  \hline

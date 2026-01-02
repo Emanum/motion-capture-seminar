@@ -3,8 +3,8 @@
 
 To give a brief overview of the research field we are presenting approaches with various sensors and methods.
 While our focus lies on 3D pose estimation OpenPose \ref{method_openpose} with their real-time 2D tracking surves as a popular example in the industry with a large user base and also as base for other papers. 
-DeMoCap \ref{method_democap} present their realtime marker based approach which uses low-cost depth sensors.
-XNect \ref{method_xnect} can track multiple persons in realtime from a single camera similar to OpenPose but for a 3D skeleton.
+DeMoCap \ref{method_democap} present their real-time marker based approach which uses low-cost depth sensors.
+XNect \ref{method_xnect} can track multiple persons in real-time from a single camera similar to OpenPose but for a 3D skeleton.
 Ultra Interal Poser \ref{method_uip} stands out as their only use wearable trackers attached to the body to generate 3D tracking data without any optical cameras.
 MAMMA \ref{method_mamma} is a recent paper, presented in december 2025, which can compete with the golden standard for accuracy while being fully automated and markerless. 
 While the paper is only available as a preprint, we still believe it is highly relevant due to their impressive results 
@@ -16,7 +16,7 @@ Furthermore, the authors are related to the Max Planck Institute for Intelligent
 OpenPose is a popular open-source framework for real-time 2D multi-person and 3D single-person pose estimation with over 30K stars on GitHub.
 There are multiple publications related to OpenPose. Convolutional Pose Machines \cite{openPose_4_wei2016cpm} started with a sequential architecture of convolutional neural networks that produces 2D belief map.
 Each network describes a stage, the output of one stage is used as input for the next stage. By using a fully differentiable model they can use backpropagation for training. One issue with their approach is handling multiple people in the same image.\\
-This is addressed in their next publication with Part Affinity Fields \cite{openPose_3_cao2017realtime}. A bottom-up approach is used. This means that first body parts are detected and afterwards assigned to an unknown number of people in the image.
+This is addressed in their next publication with Part Affinity Fields \cite{openPose_3_cao2017real-time}. A bottom-up approach is used. This means that first body parts are detected and afterwards assigned to an unknown number of people in the image.
 They extend their sequential architecture with a two-branch approach. One branch predicts part affinity fields which encode position and orientation of limbs in a 2D vector field, another the confidence maps of body parts at a certain location. By using techniques from graph theory, they can match these body parts to the vector field and also combine them into a full body pose. With their architecture and greedy matching algorithm, they can achieve real-time multi-person 2D pose estimation. \\
 In \cite{openPose_2_simon2017hand}, Simon et al. propose a method that produces 3D motion capture results handling complex Occlusion scenarios. They build up on their previous models to predict 2D estimation via multiple camera angles. The result is then triangulated to get 3D results. 
 However, compared to other approaches they go a step further and use these results as their training data together with their 2D estimations for a model which enables markerless 3D motion capture outputs on hands from single view RGB images.

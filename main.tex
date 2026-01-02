@@ -60,10 +60,26 @@ Ich erkläre weiters, dass ich mich generativer KI-Tools lediglich als Hilfmitte
 \newpage
 \addcontentsline{toc}{section}{Abstract} % This adds Abstract to the Table of Contents. 
 \section*{Abstract}
-\open{
-Here is where your abstract should be. It is not an easy task to write a good abstract, so use some time to think about it. Abstracts shouldn't contain anything that you have not mentioned in the rest of your seminar paper, but should give a short summary about everything that you wrote, including your results. Maybe it helps to think about an abstract as a spoiler: it should give all the information about your paper at the beginning. Also don't confuse it with the role of the introduction. In the introduction, you should motivate the reader thoroughly, give context to the scientific landscape (cite often!) and give an overview of what to expect.
-\\\\
-Also consider writing your abstract at the end, as you only then fully know what your paper contains.}
+
+3D Motion capture for the professional industry is traditionally being done with a marker based approach in complex studio setup including multiple cameras and special suits to achieve high accuracy.
+While this might suit certain needs such as film production and offline computer animation, other use-cases require real-time processing and high mobility instead of high accuracy.
+Furthermore, expensive investments in a motion capture studio create a high entry barrier for smaller organizations and individual creators. 
+Therefore, this seminar papers tries to find a meaningful balance between high-cost high accuracy setups and low cost high mobility setups.\\\\
+Human motion capture covers a large research field, various kinds of input data, output data a lack of common terminology and standards make it hard to compare approaches. 
+To give an overview of the possibilities in motion capture methods 5 different methods are examined in detail.
+Benchmark datasets are presented alongside different output file formats and evaluation metrics.
+Afterwards, a use-case for 3D Live concerts using virtual avatars (VTuber) is described, and motion capture tasks are formulated. 
+With a certain use-case and various kinds of approaches in mind a qualitative comparison and quantitative comparison of 8 different methods is done. 
+Lastly, a potentially suitable motion capture method is described, and current challenges are explained.
+
+
+
+
+% Motion capture technology has traditionally relied on expensive multi-camera marker-based systems that require fixed studio setups and significant infrastructure investment. However, recent advances in deep learning and computer vision have enabled cost-effective alternatives suitable for smaller organizations, individual creators, and applications requiring portability. This seminar paper provides a comprehensive overview of current state-of-the-art motion capture methods that balance accuracy, cost, and real-time performance for practical applications such as virtual avatar animation in live performances.
+
+% We examine five prominent approaches representing different sensor modalities and architectures: OpenPose, a widely-adopted real-time 2D multi-person pose estimator; DeMoCap, which uses low-cost depth sensors for marker-based 3D tracking; XNect, enabling markerless 3D multi-person tracking from a single RGB camera; Ultra Inertial Poser, combining IMU sensors with ultra-wideband technology for wearable-based tracking; and MAMMA, a recent method achieving near gold-standard accuracy with markerless multi-camera setups. Additionally, we discuss relevant datasets, data formats, and industry standards that support these approaches. We then evaluate these methods against specific requirements for real-time motion capture in live concerts with virtual avatars.
+
+% While no single existing approach fully satisfies all requirements for this use case, recent developments demonstrate significant improvements toward making motion capture more accessible to broader audiences. The trade-offs between accuracy, cost, portability, and real-time performance vary across methods, making the selection of appropriate techniques dependent on specific application constraints and intended use cases.
 
 % #########################################
 % COMMENT: This is where your table of content is automatically generated.
@@ -110,16 +126,23 @@ Also consider writing your abstract at the end, as you only then fully know what
 \textbf{Purpose:} Grammar correction and sentence completion/rewrite. \\
 \textbf{Input:} The LaTeX files from this document are used as context for the model. \\
 \textbf{Output:} - \\
-\textbf{Usage:} - \\
 \textbf{Reflection:} I had GitHub Copilot enabled as I usually do for coding, writing technical documentation etc. While it started being useful I noticed fast that it tends to write long sentences and you have to be careful to not change the original meaning. Also while it sounded professional it was obvious that the content wasn't self written. Therefore, I stopped about halfway through and completely disabled the extension. \\
 
 \noindent\rule[7pt]{\linewidth}{0.4pt}
 \textbf{AI-Tool:} GitHub Copilot via VSCode (Claude Haiku 4.5)\\
-\textbf{Purpose:} Creation of an Draft of both of the Comparision Tables\\
+\textbf{Purpose:} Creation of an draft of both of the Comparision Tables\\
 \textbf{Input:} The LaTeX files from this document are used as context for the model. Along with simple prompts like 'Check my described methods in the 2. chapter methods and update my table in Comparision.tex' \\
 \textbf{Output:} Latex Table\\
-\textbf{Usage:} - \\
 \textbf{Reflection:} As creation of tables in LaTeX is pretty verbose it saved some time, as it handles columns, formats, size and crossreferences. The actual text content in the first table was changed manually by myself. For the second table I first wrote down the benchmark results from the papers as a latex comment, and let it autofill from the AI into the table, then I verified the changes manually.\\
+
+
+\noindent\rule[7pt]{\linewidth}{0.4pt}
+\textbf{AI-Tool:} GitHub Copilot via VSCode (Claude Haiku 4.5)\\
+\textbf{Purpose:} Creation of an draft for the abstract\\
+\textbf{Input:} The LaTeX files from this document are used as context for the model. Along with simple prompt like 'Can you write me a draft for my abstract' \\
+\textbf{Output:} Draft of the abstract\\
+\textbf{Reflection:} Served as a good start. Just summarized the content did not start to get the readers' attention by trying to engage them.\\
+
 
 % Note: You can display your contents how ever you like, e.g. via a table etc.
 %TC:endignore
