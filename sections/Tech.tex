@@ -3,30 +3,32 @@
 An applied motion capture systems can be seen as a pipeline with various software modules in between. A transformation from the real human motion through tracking and processing to the final result like a rendered 3D video, animations in a game engine, motion data as an HCI device or other real time applications is done.
 In a quickly evolving field like motion capture it is especially important to have common file formats, standards and protocol to exchange the tracking information in order to allow methods to focus on a single task.
 Standardized interfaces allow us to develop a modular software architecture and upgrade our tracking methods later down the line without having to adapt our entire motion capture to render pipeline. 
-This allows commercial and open source integrations into other software to be developed. \\
-Furthermore, we need benchmark datasets to measure and compare different approaches quantitatively. This allows appropriated methods to be picked based on a certain use case. In addition, it enables accurate evaluations for new approaches.
+This allows for a smooth integration and exchange of commercial and open source motion capture software to other parts of an entire production workflow. \\
+Furthermore, we need benchmark datasets to measure and compare different approaches quantitatively. Appropriated methods can then be picked based on a certain use case. In addition, it enables accurate evaluations for new approaches.
 
-\subsection{Tracking Format}
+\subsection{Motion Capture Tracking Format}
 
-A simple solution to exchange tracking information is to store it as a set of certain keypoints in 2D or 3D coordinates and then serialize it either as plain text or in binary file format. 
+A simple solution to exchange tracking information is to store it as a set of certain keypoints in 2D or 3D coordinates. 
+Afterwards, serialize it either as plain text or in binary file format. 
 Various approaches use different body locations for their keypoints often as a result of different tracking methods. For marker based approaches these are usually equal to the marker position attached on the body.
 While there are no defined standards in the research community we have seen approaches using similar keypoint position as common datasets are using. This can be observed in the dataset HDM05 \cite{cg-2007-2} and COCO Pose \cite{coco} with their usage in OpenPose \cite{openPose_docs}. However, OpenPose also proposed their own skeleton modal body25.\\
 A common proprietary format used in the 3D graphics industry is FBX \cite{fbx_format}. It contains alongside mesh information, material and texture also skeletal animation information that can be used to store motion capture data. 
-Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent GLTF \cite{gltf_format} both are now maintained by the Khronos Group.
+Other similar multi asset format are Collada \cite{Collada_format} originally developed by Sony or the more recent gLTF \cite{gltf_format}. Both are now maintained by the Khronos Group.
 While these formats have support for meshes, they are targeted towards general 3D models and are therefore not optimized for storing human bodies.
-A mesh and skeleton based storage format limits the capabilities of some approaches. In order to predict entire body shapes and the movement of skin and fine facial details either a new mesh would need to be stored for each key frame or an increase of the skeleton count would be required. \\
+A mesh and skeleton based storage format limits the capabilities of some approaches. 
+In order to predict entire 2D body surfaces including the movement of skin and fine facial details either a new mesh would need to be stored for each key frame or an increase of the skeleton count would be required. \\
 SMPL \cite{loper_smpl_2015} improves the storage options for such approaches. It is a format specialized to capture human skinned models. Instead of storing a complex mesh for the entire body SMPL defines a base mesh and skinning equations to further refine the mesh.
 It formulates a function which takes tracking parameters along with a pre learned model as input and output a final vertex mesh for each key frame.
 SMPL comes with the weights for the model which is trained by analyzing thousands of body scans.  
 % Therefore, trading runtime speed against storage capacity. 
 SMPL-X \cite{SMPLX} improves the original model by adding tracking for hands and expressive face details as well as using an updated dataset for training.
-Both offer along the actual storage and model mechanism tools to calculate a final mesh. This is done via vertex based linear blend skinning with learned corrective blend shapes.\\\\
+Both offer along the actual storage and model mechanism tools to calculate a final mesh via vertex based linear blend skinning with learned corrective blend shapes.\\\\
 The VRM File Format \cite{VRM_consortium} is based on glTF 2.0 and build specifically for exchanging humanoid 3D avatar data in VR/AR applications. This includes motion capture data in the form of a standardized bone structure as well as all information needed for an 3D application to create and render the 3D avatar.
 This allows one format to be used within the entire lifecycle of the 3D model from its creation in the form of a 3D vertex mesh, texturing and rigging to the final usage in a 3D graphics engine application such as a game or video content. Rigging describes the process of mapping motion capture data to artistic animations of the character. While eye movements are tracked permanently via an artificial bone, emotions are controlled via toggles to allow certain face expressions defined by the artist. Secondary animation allow artists to create their own bones and associated weight parameters for the animation of hair, clothes or other accessories.
 \cite{VRM_PDF} \cite{vrm_press_release}.\\
-While VRM allows parties to exchange the model and their bone structure itself it does not handle real time streaming of motion capture data. The VMC Protocol Specification \cite{vmc_protocol_specification} solves this gap by integrating the VRM format with Open Sound Control (OSC)\cite{OpenSoundControl}. OSC was originally developed as a better alternative to the MIDI format to transmit instrument data. 
+The VRM allows parties to exchange the model and their bone structure. However, it does not handle real time streaming of motion capture data. The VMC Protocol Specification \cite{vmc_protocol_specification} solves this gap by integrating the VRM format with Open Sound Control (OSC) \cite{OpenSoundControl}. OSC was originally developed as a better alternative to the MIDI format to transmit instrument data. 
 This allows to package motion capture data into single UDP packages and stream it via Ethernet in real time. Applications supporting the VMC can be categorized into sender for bone or facial data and receiver for rendering or further processing the motion capture data often in combination with an VRM model.
-This also allows receiver apps to decouple motion capture software from the actual rendering.
+This also allows receiver apps to decouple motion capture software from the actual rendering, which further improves software architecture.
 VRM and VMC has seen adoption for a broad range of VTuber streaming software such as Warudo \cite{warudo_app} or VSeeFace \cite{vseeface_app}. Furthermore, we have also seen creators publishing their models in VRM on specific build platforms such as VRoidHub \cite{vroid_hub} or VGen \cite{vgen_vrm}.
 Virtual worlds such as Vket \cite{vket_vrm} support the usage of such avatars in a real time VR experience.
 
@@ -36,7 +38,7 @@ Virtual worlds such as Vket \cite{vket_vrm} support the usage of such avatars in
 % However, we are focusing on datasets that have seen adoption is multiple papers and sure as a benchmark purpose.\\
 AMASS (Archive of Motion Capture as Surface Shapes) \cite{AMASS:ICCV:2019} is a collection of 24 different motion capture datasets from various puplications. It contains in total 500 subjects more than 17 000 motions in about 3800 minutes. 
 AMASS combines all datasets in a standardized form by converting various keypoint locations to a uniform SMPL and SMPL-X format with their own algorithm MoSh++. 
-The collection does not provide the original RGB videos or other sensors data, instead a custom computer generated render video is contained alongside the SMPL-X parameter for each sequence.
+The collection does not provide the original RGB videos or other sensor data, instead a custom computer generated render video is contained alongside the SMPL-X parameter for each sequence.
 The collection contains datasets of varying detail levels and features (facial tracking, hand tracking). Therefore, some data might be inaccurate as a result of the generalization.
 The following datasets are contained: 
 ACCAD \cite{AMASS_ACCAD} BMLhandball \cite{AMASS_BMLhandball} BMLmovi \cite{10.1371/journal.pone.0253157} BMLrub\cite{AMASS_BMLrub}
@@ -44,7 +46,7 @@ CMU \cite{AMASS_CMU} DanceDB \cite{AMASS_DanceDB} DFaust\cite{AMASS_DFaust} Eyes
 GRAB \cite{AMASS_GRAB} GRAB2 \cite{AMASS_GRAB-2} HDM05 \cite{AMASS_HDM05} HUMAN4D \cite{AMASS_HUMAN4D}
 HumanEva \cite{AMASS_HumanEva} KIT \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN} KIT2 \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN-2} KIT3 \cite{AMASS_KIT-CNRS-EKUT-WEIZMANN-3}
 MOYO \cite{AMASS_MOYO} MoSh \cite{AMASS_MoSh} PosePrior \cite{AMASS_PosePrior} SFU \cite{AMASS_SFU}
-SOMA \cite{AMASS_SOMA} TCDHands \cite{AMASS_TCDHands} TotalCapture \cite{AMASS_TotalCapture} WheelPoser \cite{AMASS_WheelPoser}\\
+SOMA \cite{AMASS_SOMA} TCDHands \cite{AMASS_TCDHands} TotalCapture \cite{AMASS_TotalCapture} WheelPoser \cite{AMASS_WheelPoser}. \\\\
 The CMU Panoptic dataset \cite{Joo_2017_TPAMI} contains 65 sequences in 5.5 hours. Their studio setup is build as a 6 m diameter sized dome equipped with 480 low resolution and 31 high resolution cameras as well as 10 Kinect depth sensors and 5 DLP projectors for the high resolution cameras. It contains various single and multi person scenes including interaction between humans and other objects like playing instruments or dancing.\\
 % Human3.6M, HumanEva, and MPI-INF-3DHP dataset
 We have also seen some datasets focusing on certain use cases. Particular interesting are datasets that cover close human interaction. The Hi4D dataset \cite{yin2023hi4d} captures 100 sequences with interaction like hugging, dancing or fighting. It comes with SMPL parameters and a 4D scan as ground truth. 
@@ -58,8 +60,8 @@ Another dataset used for benchmarks is MuPoTS-3D benchmark dataset \cite{singles
 \subsection{Evaluation Metrics}
 
 The most common metric for evaluation is MPJPE (Mean Per Joint Position Error) usually measure in millimeter (mm). This describes the distance between the ground truth 3D position and the tracked position. 
-A variation of this is RMSPJPE (Root Mean Squared Per Joint Position Error) that uses the root-mean-square instead of a simple mean.\\
-For approaches that output mesh, surface or SMPL data MPVE (Mean Per Vertex Error) is used instead. This measures the error at each mesh vertex.
+A variation of this is RMSPJPE (Root Mean Squared Per Joint Position Error) which uses the root-mean-square instead of a simple mean.\\
+For approaches that output 2D surfaces or SMPL data MPVE (Mean Per Vertex Error) is used instead. This measures the error at each mesh vertex.
 Other metrics are PCP3D (Percentage of Correct Parts 3D) which tracks the amount of correct classified body parts. 
 Similar to this PCK3D (Percentage of Correct Keypoints 3D) tracks the amount of correct classified keypoints. 
 A pose/keypoint is correctly classified when the euclidean distance between the estimated pose/keypoint and the ground truth pose/keypoint is below a certain threshold $\alpha$. 
