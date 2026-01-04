@@ -2,16 +2,15 @@
 \label{chapter_discussion}
 
 In Table \hyperref[tab:comparison]{1}, we summarized the approaches from Chapter \ref{chapter_methods} and compared them to each other based on the sensor setup, their output data, time complexity and their key limitations. 
-Furthermore, we also added 3 more interesting approaches that were not discussed in details in 
-Chapter \ref{chapter_methods}
-Table \hyperref[tab:dataset]{2} compares the approaches in terms of tracking accuracy (MPJPE).\\\\
-Based on the requirements for our task set in Chapter \ref{chapter_task} we are evaluating which kind of approach could be fitting. 
-In general, we can see that optical camera based systems are preferred due to lower susceptibility to jitter and drift errors compared to IMU sensors as seen in Ultra Inertial Poser \cite{UltraInertialPoser}. 
-The limitations in distance and refresh for depth sensors as seen in DeMoCap \cite{chatzitofis2021democap} further suggest the usage of optical cameras instead.
+Furthermore, 3 more interesting approaches SimPoE \cite{simpoe} PACE \cite{PACE} and Avatarpose \cite{leonardis_avatarpose_2025} were added that was not discussed in details before. \\
+Table \hyperref[tab:dataset]{2} compares the same approaches in terms of tracking accuracy (MPJPE).\\\\
+Based on the requirements for our task set in Chapter \ref{chapter_task} we are evaluating which kind of approach could be fitting.
+After examining video examples, we assume that optical camera based systems are preferred due to lower susceptibility to jitter and drift errors compared to IMU sensors as seen in Ultra Inertial Poser \cite{UltraInertialPoser}. 
+The limitations in distance and refresh for depth sensors as seen in DeMoCap \cite{chatzitofis2021democap} further suggest the usage of optical cameras.
 Furthermore, in order to reduce occlusion errors and capture close human interaction as good as possible using multiple camera angles seems unavoidable as the results of XNect \ref{method_xnect} and other single RGB camera approaches like SimPoE \cite{simpoe} or PACE \cite{PACE} show us. 
-In order to use existing 3D models during a live show support for the VRM format is unavoidable.
+In order to use existing 3D models during a live show support for a common file format already used in the industry based on mesh data such as VRM or FBX is unavoidable.
 While SMPL(X) offers great tracking potential we do not see the need for it in our use-case. A method with VMC support would solve a lot of issues for integrating new motion capture tools to existing workflow pipelines.
-Methods design to work in the wild like PACE \cite{PACE} or EgoPoser \cite{jiang2024egoposer} are impressive but seem to be more suited for wearable AR/VR devices than multi-person tracking in a studio setup.\\
+Methods designed to work in the wild like PACE \cite{PACE} or EgoPoser \cite{jiang2024egoposer} are impressive on its own but seem to be more suited for wearable AR/VR devices than multi-person tracking in a semi portable studio setup.\\
 The combination of multi person tracking during a real-time scenarios still serves as a great challenge as our literature review shows. From the 8 approaches in Table \hyperref[tab:comparison]{1} only XNect \ref{method_xnect} fulfilled both of these requirements.
 However, if we ignore the real-time aspect MAMMA \cite{cuevas2025mamma} and Avatarpose \cite{leonardis_avatarpose_2025} seems to be the best approaches for our use-case. 
 In their current setup MAMMA focus on tracking accuracy and applies 33 cameras which is considerable higher than other methods that work in real-time.
@@ -36,7 +35,7 @@ Therefore, we hope that we will see upcoming approaches with focusing on real-ti
  \hline
  \textbf{XNect} 2020 \cite{mehta_xnect_2020} (\ref{method_xnect}) & single RGB camera & multi person 3D pose as Skeleton & real-time & Occlusion of neck leads to complete loss of person; Issues with complex interactions; person mismatch between frames \\
  \hline
- \textbf{Ultra Inertial Poser} 2024 \cite{UltraInertialPoser} (\ref{method_uip}) &  6 wearable trackers with IMU + UWB & single person 3D pose in SMPL & real-time & clear visible jitter artifacts; low tracking position accuracy (order of 5-11 cm)  \\
+ \textbf{Ultra Inertial Poser} 2024 \cite{UltraInertialPoser} (\ref{method_uip}) &  6 wearable trackers with IMU + UWB & single person 3D pose in SMPL & real-time & clear visible jitter artifacts; low tracking position accuracy (magnitude of 5-11 cm)  \\
  \hline
  \textbf{MAMMA} 2025 \cite{cuevas2025mamma} (\ref{method_mamma}) & 33 high quality RGB cameras & multi person 3D pose in SMPL-X & offline; processing duration around 3x than recording & high number of camera required; low mobility \\
  \hline
@@ -80,7 +79,7 @@ Therefore, we hope that we will see upcoming approaches with focusing on real-ti
 }
 
 \vspace{0.5cm}
-\textbf{Table 1:} Qualitative Comparisons of the approaches including their general sensor setup and key limitations.
+\textbf{Table 1:} Qualitative comparisons including general sensor setup and key limitations.
 \label{tab:comparison}
 
 \pagebreak
@@ -125,7 +124,7 @@ Therefore, we hope that we will see upcoming approaches with focusing on real-ti
 \end{tabularx}
 
 \vspace{0.5cm}
-\textbf{Table 2:} Quantitative comparison of the approaches for tracking accuracy. Values represent Mean Per-Joint Position Error (MPJPE) in millimeters. Note that the evaluation on each approach was not standardized due to the large difference of the approaches. So the quantitative numbers should only be taken as a relative comparison between the approaches. For detailed benchmark results refer to the individual papers.
+\textbf{Table 2:} Quantitative comparison for tracking accuracy. Values represent Mean Per-Joint Position Error (MPJPE) in millimeters. Note that the evaluation on each approach was not standardized due to the large difference of the approaches. So the quantitative numbers should only be taken as a relative comparison between the approaches. For detailed benchmark results refer to the individual papers.
 \label{tab:dataset}
 
 
